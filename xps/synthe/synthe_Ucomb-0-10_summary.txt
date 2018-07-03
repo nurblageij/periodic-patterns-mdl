@@ -1,0 +1,29 @@
+0 >> Perfect match
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 4, 't0s': [0, 4534, 6923, 12733], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-32-4', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-19-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U3-60-13', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-4-17']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_simple=2 nb_other=1 nb_nested=1)
+Code length patterns (4): 4663.027034
+Code length residuals (0): 0.000000
+-- Total code length = 4663.027034 (14.908625% of 31277.377751)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=461 p=7]	Code length:1044.552184	sum(|E|)=90	Occs (461/461)	simple
+t0=4534	((a)[r=20 p=15])[r=8 p=190]	Code length:459.502382	sum(|E|)=70	Occs (160/157)	nested
+t0=6923	((a [d=1] c [d=2] d)[r=27 p=13])[r=15 p=258]	Code length:2645.398420	sum(|E|)=127	Occs (1215/1197)	other
+t0=12733	(a)[r=223 p=16]	Code length:513.574048	sum(|E|)=34	Occs (223/223)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=9 nb_simple=9)
+Code length patterns (9): 8824.492196
+Code length residuals (0): 0.000000
+-- Total code length = 8824.492196 (28.213657% of 31277.377751)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=461 p=7]	Code length:1044.552184	sum(|E|)=90	Occs (461/461)	simple
+t0=12733	(a)[r=201 p=16]	Code length:465.763633	sum(|E|)=30	Occs (201/201)	simple
+t0=10618	(a)[r=21 p=13]	Code length:85.385198	sum(|E|)=6	Occs (21/21)	simple
+t0=15866	(a)[r=27 p=16]	Code length:95.991586	sum(|E|)=5	Occs (27/27)	simple
+t0=6926	(d)[r=397 p=12]	Code length:2057.764561	sum(|E|)=1231	Occs (397/397)	simple
+t0=6924	(c)[r=399 p=12]	Code length:2071.730613	sum(|E|)=1241	Occs (399/399)	simple
+t0=6923	(a)[r=380 p=12]	Code length:2022.860357	sum(|E|)=1230	Occs (380/380)	simple
+t0=4534	(a)[r=126 p=10]	Code length:781.647574	sum(|E|)=495	Occs (126/126)	simple
+t0=5786	(a)[r=31 p=15]	Code length:198.796491	sum(|E|)=100	Occs (31/31)	simple

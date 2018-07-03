@@ -1,0 +1,211 @@
+\documentclass{report}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amssymb} %,amsthm}
+\usepackage{xifthen}% provides \isempty test
+\usepackage{placeins}
+\usepackage[margin=1.in,asymmetric]{geometry}
+
+\newcommand{\dstname}[1]{\texttt{#1}}
+\newcommand{\dstTZapX}{\dstname{3zap}}
+\newcommand{\dstBugzX}{\dstname{bugzilla}}
+\newcommand{\dstTZap}[1]{\dstname{3zap-{#1}}}
+\newcommand{\dstBugz}[1]{\dstname{bugzilla-{#1}}}
+\newcommand{\dstSacha}{\dstname{sacha}}
+\newcommand{\dstSachaAR}[1]{\dstname{sacha-{#1}}}
+\newcommand{\dstSachaG}[1]{\dstname{sacha-{\iAbs}-G{#1}}}
+\newcommand{\dstSamba}{\dstname{samba}}
+\newcommand{\dstUbi}{\dstname{ubiqLog}}
+\newcommand{\dstUbiAR}[1]{\dstname{ubiqLog-{#1}}}
+\newcommand{\dstUbiSAbs}[1]{\dstname{#1}}
+\newcommand{\dstUbiSRel}[1]{\dstname{#1}}
+\newcommand{\iRel}{rel}
+\newcommand{\iAbs}{abs}
+
+\DeclareMathOperator{\omed}{med}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+
+\newcommand{\optspan}{\Delta}
+\newcommand{\ABC}{\Omega}
+\newcommand{\len}[1]{\abs{#1}}
+\newcommand{\tspan}[1]{\optspan(#1)}
+\newcommand{\seq}[1][]{%
+   {\ifthenelse{\isempty{#1}}%
+     {\ensuremath{S}}
+     %{\ensuremath{S^{(#1)}}}
+     {\ensuremath{S_{#1}}}
+   }
+}
+\newcommand{\ccycle}{\ensuremath{\mathcal{C}}}
+\newcommand{\cl}{\mathit{L}}
+\newcommand{\prcCl}{\%\cl}
+
+\newcommand{\collF}{\ccycle_{F}}
+\newcommand{\collV}{\ccycle_{V}}
+\newcommand{\collH}{\ccycle_{H}}
+\newcommand{\collVH}{\ccycle_{V\!+H}}
+\newcommand{\collS}{\ccycle_{S}}
+
+\newcommand{\resSet}{\mathcal{R}}
+\newcommand{\ratioClRC}[1]{\cl_{#1}\!:\!\resSet}
+\newcommand{\ratioClR}{\cl\!:\!\resSet}
+\newcommand{\clEmpty}{\cl(\emptyset, \seq)}
+\newcommand{\clCC}{\cl(\ccycle, \seq)}
+
+\newcommand{\nbTD}{m}
+\newcommand{\nbV}{v}
+\newcommand{\nbH}{h}
+\newcommand{\nbS}{s}
+
+\newcommand{\nbOTC}{c_{>3}}
+\newcommand{\nbOmed}{c^{\text{M}}}
+\newcommand{\nbOmax}{c^{+}}
+
+
+\begin{document}
+\input{./xps/table_datasets_agg}
+
+\input{./xps/table_results_short}
+\input{./xps/table_results_agg}
+
+\begin{figure}[tbp]
+\centering
+\caption{Compression ratios for the sequences from the \dstUbiAR{\iAbs} dataset.}
+\label{fig:xps-prcCl-ubi-abs}
+\includegraphics[trim=20 0 40 0,clip,width=.49\textwidth]{./xps/fig_prcCL_UbiqLogISEAbs2-2}
+\includegraphics[trim=20 0 40 0,clip,width=.49\textwidth]{./xps/fig_prcCL_UbiqLogISEAbs1-2}
+\end{figure}
+
+
+
+\begin{figure}[tbp]
+  \centering
+  \begin{tabular}{@{}cc@{}}
+    \includegraphics[trim=5 0 20 0,height=3.5cm,clip]{./xps/fig_times(h)_all} &
+    \includegraphics[trim=5 0 20 0,height=3.5cm,clip]{./xps/fig_times(m)_all} \\
+  \end{tabular}
+\caption{Running times for mining the different sequences (in hours, left) and zooming in on shorter sequences (in minutes, right).}
+\label{fig:xps-times}
+\end{figure}
+
+
+\FloatBarrier
+\begin{figure}[tbp] \centering
+\caption{Compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed only by shift noise.}
+\label{fig:synthe_1_cr}
+\includegraphics[trim=0 0 0 0,clip,width=.8\textwidth]{./xps/synthe_S_scatter}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed by additive noise $(a, 0.1)$.}
+\label{fig:synthe_2_cr}
+\includegraphics[trim=0 0 0 0,clip,width=.8\textwidth]{./xps/synthe_V_scatter}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed by additive noise $(a, 0.5)$.}
+\label{fig:synthe_3_cr}
+\includegraphics[trim=0 0 0 0,clip,width=.8\textwidth]{./xps/synthe_W_scatter}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences containing interleaving.}
+\label{fig:synthe_4_cr}
+\includegraphics[trim=0 0 0 0,clip,width=.8\textwidth]{./xps/synthe_U_scatter}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[tbp] \centering
+\caption{Differences in compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed only by shift noise.}
+\label{fig:synthe_1}
+\includegraphics[trim=50 20 100 20,clip,width=.8\textwidth]{./xps/synthe_S_box}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Differences in compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed by additive noise $(a, 0.1)$.}
+\label{fig:synthe_2}
+\includegraphics[trim=50 20 100 20,clip,width=.8\textwidth]{./xps/synthe_V_box}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Differences in compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences perturbed by additive noise $(a, 0.5)$.}
+\label{fig:synthe_3}
+\includegraphics[trim=50 20 100 20,clip,width=.8\textwidth]{./xps/synthe_W_box}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Differences in compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences containing interleaving.}
+\label{fig:synthe_4}
+\includegraphics[trim=50 20 100 20,clip,width=.8\textwidth]{./xps/synthe_U_box}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}[tbp] \centering
+\caption{Compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences with multiple planted patterns.}
+\label{fig:synthe_comb_cr}
+\includegraphics[trim=0 0 0 0,clip,width=.8\textwidth]{./xps/synthe_comb_scatter}
+\end{figure}
+
+\begin{figure}[tbp] \centering
+\caption{Differences in compression ratios for planted and extracted pattern collections ($\prcCl_H$ and $\prcCl_F$, respectively) on synthetic sequences with multiple planted patterns.}
+\label{fig:synthe_comb}
+\includegraphics[trim=0 0 80 20,clip,width=.8\textwidth]{./xps/synthe_comb_box}
+\end{figure}
+
+\FloatBarrier
+
+\input{./xps/table_datasets_stats}
+
+\input{./xps/table_results_all_long}
+
+\FloatBarrier
+
+\begin{figure}
+\centering
+\caption{Compression ratios for \dstTZapX{}, \dstBugzX{} and \dstSamba{} sequences.}
+\label{fig:xps-prcCl-other}
+\includegraphics[trim=0 0 40 30,clip,width=.7\textwidth]{./xps/fig_prcCL_Other}
+\end{figure}
+
+\begin{figure}
+\centering
+\caption{Compression ratios for \dstSachaAR{\iAbs} sequences with various time granularities.}
+\label{fig:xps-prcCl-sacha}
+\includegraphics[trim=20 0 40 0,clip,width=.8\textwidth]{./xps/fig_prcCL_Sacha}
+\end{figure}
+
+\begin{figure}
+\centering
+\caption{Compression ratios for the sequences from the \dstUbiAR{\iAbs} dataset.}
+\label{fig:xps-prcCl-ubi-abs}
+\includegraphics[trim=30 0 40 30,clip,width=.8\textwidth]{./xps/fig_prcCL_UbiqLogISEAbs}
+\end{figure}
+
+\begin{figure}
+\centering
+\caption{Compression ratios for the sequences from the \dstUbiAR{\iRel} dataset.}
+\label{fig:xps-prcCl-ubi-rel}
+\includegraphics[trim=30 0 40 30,clip,width=.8\textwidth]{./xps/fig_prcCL_UbiqLogISRel}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[tbp]
+  \centering
+  \begin{tabular}{@{}ccc@{}}
+    \includegraphics[trim=5 0 20 0,width=.32\textwidth,clip]{./xps/fig_times(h)_details} &
+    \includegraphics[trim=5 0 20 0,width=.32\textwidth,clip]{./xps/fig_times(m)_details} &
+    \includegraphics[trim=5 0 20 0,width=.32\textwidth,clip]{./xps/fig_times(s)_details} \\
+    \multicolumn{3}{c}{\hfill \includegraphics[trim=100 133 10 222,width=.45\textwidth,clip]{./xps/fig_times(l)_details} \hfill
+    \includegraphics[trim=100 45 10 310,width=.45\textwidth,clip]{./xps/fig_times(l)_details} \hfill} \\
+  \end{tabular}
+\caption{Running times for sequences from the different datasets, in hours (left) and zoomed-in in minutes (center) and seconds (right).}
+\label{fig:xps-times-details}
+\end{figure}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

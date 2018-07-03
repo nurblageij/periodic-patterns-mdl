@@ -1,0 +1,26 @@
+3 >> Patts cover match, some worse, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 5, 't0s': [0, 3783, 6155, 9731, 14645], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-49-5', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-42-14', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-9-5', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-47-12', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-23-15']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_nested=4 nb_simple=1)
+Code length patterns (5): 3188.449947
+Code length residuals (0): 0.000000
+-- Total code length = 3188.449947 (19.028563% of 16756.125983)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=11 p=6])[r=8 p=76])[r=4 p=705]	Code length:914.452665	sum(|E|)=118	Occs (352/352)	nested
+t0=3783	((a)[r=20 p=7])[r=11 p=170]	Code length:577.587238	sum(|E|)=70	Occs (220/220)	nested
+t0=6155	(a)[r=181 p=16]	Code length:511.499299	sum(|E|)=116	Occs (181/181)	simple
+t0=9731	(((a)[r=12 p=7])[r=6 p=146])[r=4 p=879]	Code length:769.168789	sum(|E|)=101	Occs (288/288)	nested
+t0=14645	(((a)[r=8 p=14])[r=6 p=189])[r=3 p=1184]	Code length:415.741955	sum(|E|)=36	Occs (144/144)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=5 nb_nested=3 nb_simple=2)
+Code length patterns (5): 3665.819366
+Code length residuals (0): 0.000000
+-- Total code length = 3665.819366 (21.877487% of 16756.125983)
+ ---- COLLECTION PATTERNS
+t0=9731	((a)[r=12 p=7])[r=24 p=146]	Code length:747.886211	sum(|E|)=107	Occs (288/288)	nested
+t0=6155	(a)[r=181 p=16]	Code length:511.499299	sum(|E|)=116	Occs (181/181)	simple
+t0=14645	(((a)[r=8 p=14])[r=6 p=189])[r=3 p=1184]	Code length:415.741955	sum(|E|)=36	Occs (144/144)	nested
+t0=0	((a)[r=88 p=6])[r=4 p=705]	Code length:1159.400382	sum(|E|)=386	Occs (352/352)	nested
+t0=3783	(a)[r=220 p=7]	Code length:831.291518	sum(|E|)=358	Occs (220/220)	simple

@@ -1,0 +1,28 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 4, 't0s': [0, 876, 4796, 7213], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S2-56-9', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S2-52-7', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-35-1', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-15-10']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_simple=1 nb_other=1 nb_concat=1 nb_nested=1)
+Code length patterns (4): 4212.536258
+Code length residuals (0): 0.000000
+-- Total code length = 4212.536258 (16.569902% of 25422.819505)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=11 p=12])[r=7 p=137])[r=3 p=980]	Code length:1086.396560	sum(|E|)=60	Occs (462/462)	other
+t0=876	(a [d=4] b)[r=416 p=12]	Code length:1781.477848	sum(|E|)=71	Occs (832/832)	concat
+t0=4796	(a)[r=404 p=7]	Code length:969.775594	sum(|E|)=131	Occs (404/404)	simple
+t0=7213	((a)[r=22 p=15])[r=6 p=379]	Code length:374.886256	sum(|E|)=48	Occs (132/132)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=8 nb_simple=5 nb_concat=2 nb_nested=1)
+Code length patterns (8): 6024.635672
+Code length residuals (2): 28.531382
+-- Total code length = 6053.167054 (23.809975% of 25422.819505)
+ ---- COLLECTION PATTERNS
+t0=2903	(a)[r=158 p=12]	Code length:363.328525	sum(|E|)=15	Occs (158/158)	simple
+t0=2907	(b)[r=247 p=12]	Code length:584.473204	sum(|E|)=59	Occs (247/247)	simple
+t0=0	(a [d=4] b)[r=70 p=12]	Code length:377.319739	sum(|E|)=46	Occs (140/140)	concat
+t0=5849	(a)[r=278 p=7]	Code length:823.553507	sum(|E|)=236	Occs (278/278)	simple
+t0=7971	((a)[r=22 p=15])[r=4 p=379]	Code length:268.761648	sum(|E|)=29	Occs (88/88)	nested
+t0=876	(a [d=4] b)[r=319 p=6]	Code length:2590.486147	sum(|E|)=1266	Occs (638/638)	concat
+t0=4796	(a)[r=228 p=5]	Code length:932.955456	sum(|E|)=445	Occs (228/228)	simple
+t0=7637	(a)[r=19 p=15]	Code length:83.757446	sum(|E|)=10	Occs (19/19)	simple

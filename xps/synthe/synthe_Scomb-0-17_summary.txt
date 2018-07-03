@@ -1,0 +1,29 @@
+0 >> Perfect match
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 4, 't0s': [0, 11561, 14159, 17669], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S2-56-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-42-7', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-32-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-26-10']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_nested=2 nb_simple=1 nb_other=1)
+Code length patterns (4): 3208.837828
+Code length residuals (0): 0.000000
+-- Total code length = 3208.837828 (16.233707% of 19766.513020)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=12 p=22])[r=6 p=325])[r=4 p=1979]	Code length:1322.084368	sum(|E|)=65	Occs (576/576)	other
+t0=11561	((a)[r=20 p=9])[r=9 p=237]	Code length:480.922455	sum(|E|)=53	Occs (180/180)	nested
+t0=14159	(a)[r=407 p=7]	Code length:939.933146	sum(|E|)=93	Occs (407/407)	simple
+t0=17669	(((a)[r=8 p=13])[r=6 p=189])[r=3 p=1181]	Code length:465.897859	sum(|E|)=86	Occs (144/144)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=9 nb_simple=4 nb_nested=4 nb_other=1)
+Code length patterns (9): 3427.352024
+Code length residuals (0): 0.000000
+-- Total code length = 3427.352024 (17.339184% of 19766.513020)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=12 p=22])[r=6 p=325])[r=4 p=1979]	Code length:1322.084368	sum(|E|)=65	Occs (576/576)	other
+t0=14159	(a)[r=407 p=7]	Code length:939.933146	sum(|E|)=93	Occs (407/407)	simple
+t0=11561	((a)[r=20 p=9])[r=9 p=237]	Code length:480.922455	sum(|E|)=53	Occs (180/180)	nested
+t0=20031	((a)[r=8 p=13])[r=6 p=189]	Code length:181.831129	sum(|E|)=23	Occs (48/48)	nested
+t0=17669	((a)[r=8 p=13])[r=6 p=189]	Code length:190.570106	sum(|E|)=27	Occs (48/48)	nested
+t0=19039	((a)[r=8 p=13])[r=3 p=380]	Code length:129.954093	sum(|E|)=14	Occs (24/24)	nested
+t0=18850	(a)[r=8 p=13]	Code length:59.018520	sum(|E|)=4	Occs (8/8)	simple
+t0=19230	(a)[r=8 p=12]	Code length:61.019001	sum(|E|)=6	Occs (8/8)	simple
+t0=19610	(a)[r=8 p=13]	Code length:62.019206	sum(|E|)=7	Occs (8/8)	simple

@@ -17,7 +17,7 @@ We evaluate the interest of our approach on several real-world event log dataset
 An event log recording daily activities might look like this
 
 Date | Time | Activity
-----------------------------
+-----|------|---------------
 16-04-2018 | 7:30 | wake up 
 16-04-2018 | 7:40 | prepare coffee 
 &nbsp; | ... | &nbsp;

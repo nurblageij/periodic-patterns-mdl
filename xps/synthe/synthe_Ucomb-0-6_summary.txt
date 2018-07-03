@@ -1,0 +1,29 @@
+3 >> Patts cover match, some worse, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 4, 't0s': [0, 4695, 5822, 7579], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-36-5', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-48-18', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-28-13', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-50-5']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_nested=3 nb_simple=1)
+Code length patterns (4): 3075.643301
+Code length residuals (0): 0.000000
+-- Total code length = 3075.643301 (20.322437% of 15134.224493)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=395 p=8]	Code length:999.169780	sum(|E|)=179	Occs (395/395)	simple
+t0=4695	(((a)[r=10 p=6])[r=8 p=43])[r=4 p=194]	Code length:772.374627	sum(|E|)=45	Occs (320/276)	nested
+t0=5822	(((a)[r=8 p=12])[r=6 p=85])[r=3 p=349]	Code length:421.397726	sum(|E|)=44	Occs (144/143)	nested
+t0=7579	(((a)[r=12 p=8])[r=7 p=107])[r=4 p=458]	Code length:882.701168	sum(|E|)=124	Occs (336/329)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=9 nb_simple=9)
+Code length patterns (9): 4184.180255
+Code length residuals (3): 39.722374
+-- Total code length = 4223.902629 (27.909607% of 15134.224493)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=395 p=8]	Code length:999.169780	sum(|E|)=179	Occs (395/395)	simple
+t0=4695	(a)[r=276 p=3]	Code length:1010.095368	sum(|E|)=427	Occs (276/276)	simple
+t0=9231	(a)[r=49 p=8]	Code length:183.733215	sum(|E|)=52	Occs (49/49)	simple
+t0=7579	(a)[r=48 p=8]	Code length:183.771953	sum(|E|)=54	Occs (48/48)	simple
+t0=6690	(a)[r=32 p=12]	Code length:137.392877	sum(|E|)=39	Occs (32/32)	simple
+t0=5822	(a)[r=32 p=12]	Code length:144.392723	sum(|E|)=46	Occs (32/32)	simple
+t0=8006	(a)[r=229 p=6]	Code length:1043.386204	sum(|E|)=554	Occs (229/229)	simple
+t0=6511	(a)[r=32 p=5]	Code length:177.408283	sum(|E|)=79	Occs (32/32)	simple
+t0=6163	(a)[r=47 p=10]	Code length:304.829852	sum(|E|)=177	Occs (47/47)	simple

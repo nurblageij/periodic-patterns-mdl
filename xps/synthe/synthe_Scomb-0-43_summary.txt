@@ -1,0 +1,26 @@
+4 >> Patts cover match, some worse, better code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 5, 't0s': [0, 4856, 8022, 18596, 21732], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S2-53-16', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-2-12', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S3-61-15', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-37-1', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-6-7']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_simple=2 nb_other=2 nb_nested=1)
+Code length patterns (5): 4156.275361
+Code length residuals (480): 8398.693193
+-- Total code length = 12554.968553 (42.144978% of 29789.951628)
+ ---- COLLECTION PATTERNS
+t0=0	((a [d=4] b)[r=20 p=19])[r=10 p=381]	Code length:879.385407	sum(|E|)=0	Occs (400/400)	other
+t0=4856	(a)[r=187 p=13]	Code length:445.005064	sum(|E|)=36	Occs (187/187)	simple
+t0=8022	(((a [d=1] b [d=2] c)[r=10 p=24])[r=6 p=337])[r=4 p=2104]	Code length:1560.381331	sum(|E|)=0	Occs (720/720)	other
+t0=18596	((a)[r=24 p=7])[r=15 p=169]	Code length:786.474197	sum(|E|)=0	Occs (360/360)	nested
+t0=21732	(a)[r=186 p=12]	Code length:485.029362	sum(|E|)=78	Occs (186/186)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=5 nb_simple=3 nb_other=1 nb_concat=1)
+Code length patterns (5): 4121.668755
+Code length residuals (0): 0.000000
+-- Total code length = 4121.668755 (13.835769% of 29789.951628)
+ ---- COLLECTION PATTERNS
+t0=18596	(a)[r=360 p=7]	Code length:768.042677	sum(|E|)=14	Occs (360/360)	simple
+t0=0	(a [d=4] b)[r=200 p=19]	Code length:862.684252	sum(|E|)=9	Occs (400/400)	concat
+t0=8022	(((a [d=1] c [d=2] d)[r=10 p=24])[r=6 p=337])[r=4 p=2104]	Code length:1560.907400	sum(|E|)=0	Occs (720/720)	other
+t0=4856	(a)[r=187 p=13]	Code length:445.005064	sum(|E|)=36	Occs (187/187)	simple
+t0=21732	(a)[r=186 p=12]	Code length:485.029362	sum(|E|)=78	Occs (186/186)	simple

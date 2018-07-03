@@ -1,0 +1,31 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 2, 't0s': [0, 590], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U3-62-0', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-9-8']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=2 nb_simple=1 nb_other=1)
+Code length patterns (2): 2067.648709
+Code length residuals (0): 0.000000
+-- Total code length = 2067.648709 (18.327584% of 11281.621480)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=1] c [d=2] d)[r=10 p=22])[r=7 p=127])[r=3 p=476]	Code length:1435.241534	sum(|E|)=68	Occs (630/630)	other
+t0=590	(a)[r=240 p=11]	Code length:632.407175	sum(|E|)=127	Occs (240/240)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=13 nb_simple=9 nb_concat=4)
+Code length patterns (13): 3537.103310
+Code length residuals (33): 446.471857
+-- Total code length = 3983.575167 (35.310307% of 11281.621480)
+ ---- COLLECTION PATTERNS
+t0=1916	(a)[r=102 p=11]	Code length:287.503086	sum(|E|)=55	Occs (102/102)	simple
+t0=450	(c [d=3] d)[r=147 p=7]	Code length:1099.448169	sum(|E|)=467	Occs (294/294)	concat
+t0=498	(a)[r=281 p=5]	Code length:1208.789668	sum(|E|)=620	Occs (281/281)	simple
+t0=1700	(c [d=2] d)[r=11 p=22]	Code length:101.969879	sum(|E|)=10	Occs (22/22)	concat
+t0=2985	(a)[r=23 p=11]	Code length:92.233544	sum(|E|)=15	Occs (23/23)	simple
+t0=0	(a [d=2] c)[r=9 p=22]	Code length:95.457950	sum(|E|)=11	Occs (18/18)	concat
+t0=1571	(c)[r=11 p=22]	Code length:58.394011	sum(|E|)=4	Occs (11/11)	simple
+t0=131	(c [d=0] a)[r=26 p=14]	Code length:307.034900	sum(|E|)=158	Occs (52/52)	concat
+t0=1446	(d)[r=12 p=22]	Code length:64.250621	sum(|E|)=8	Occs (12/12)	simple
+t0=195	(d)[r=6 p=22]	Code length:47.443829	sum(|E|)=2	Occs (6/6)	simple
+t0=4	(d)[r=5 p=22]	Code length:45.780395	sum(|E|)=2	Occs (5/5)	simple
+t0=1462	(c)[r=11 p=22]	Code length:64.394967	sum(|E|)=10	Occs (11/11)	simple
+t0=1595	(d)[r=11 p=22]	Code length:64.402291	sum(|E|)=10	Occs (11/11)	simple

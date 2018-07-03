@@ -1,0 +1,30 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 3, 't0s': [0, 3485, 5166], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-13-7', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-47-15', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-30-17']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=3 nb_nested=2 nb_simple=1)
+Code length patterns (3): 2090.447498
+Code length residuals (77): 993.134100
+-- Total code length = 3083.581598 (24.903882% of 12381.931638)
+ ---- COLLECTION PATTERNS
+t0=0	((a)[r=20 p=19])[r=11 p=459]	Code length:570.700821	sum(|E|)=68	Occs (220/220)	nested
+t0=3485	(((a)[r=10 p=7])[r=6 p=118])[r=3 p=760]	Code length:502.842897	sum(|E|)=55	Occs (180/180)	nested
+t0=5166	(a)[r=494 p=5]	Code length:1016.903780	sum(|E|)=0	Occs (494/494)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=11 nb_simple=11)
+Code length patterns (11): 3707.879426
+Code length residuals (2): 25.795691
+-- Total code length = 3733.675117 (30.154222% of 12381.931638)
+ ---- COLLECTION PATTERNS
+t0=5166	(a)[r=576 p=5]	Code length:1590.697329	sum(|E|)=410	Occs (576/576)	simple
+t0=442	(a)[r=21 p=19]	Code length:87.059787	sum(|E|)=11	Occs (21/21)	simple
+t0=3214	(a)[r=15 p=19]	Code length:67.598752	sum(|E|)=3	Occs (15/15)	simple
+t0=2755	(a)[r=21 p=19]	Code length:102.067343	sum(|E|)=26	Occs (21/21)	simple
+t0=0	(a)[r=21 p=19]	Code length:103.067542	sum(|E|)=27	Occs (21/21)	simple
+t0=918	(a)[r=47 p=19]	Code length:250.769833	sum(|E|)=124	Occs (47/47)	simple
+t0=5005	(a)[r=19 p=7]	Code length:106.250156	sum(|E|)=34	Occs (19/19)	simple
+t0=3485	(a)[r=78 p=7]	Code length:447.066836	sum(|E|)=259	Occs (78/78)	simple
+t0=4076	(a)[r=114 p=7]	Code length:669.427058	sum(|E|)=410	Occs (114/114)	simple
+t0=1837	(a)[r=23 p=19]	Code length:141.936998	sum(|E|)=62	Occs (23/23)	simple
+t0=2296	(a)[r=23 p=19]	Code length:141.937791	sum(|E|)=62	Occs (23/23)	simple

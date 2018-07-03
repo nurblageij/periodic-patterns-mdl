@@ -1,0 +1,31 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 0, 'level': 2, 'add_noise': [('a', 0.1)], 'inner': 'a [d=1] c [d=2] d', 'noise_dens': 0.0, 'nb_occs': 500, 'p_down': 10, 'j': 3, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 1875.447932
+Code length residuals (89): 1232.895275
+-- Total code length = 3108.343207 (22.321617% of 13925.260174)
+ ---- COLLECTION PATTERNS
+t0=0	((a [d=1] c [d=2] d)[r=20 p=15])[r=15 p=395]	Code length:1875.447932	sum(|E|)=0	Occs (900/900)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=15 nb_simple=13 nb_other=2)
+Code length patterns (15): 3693.456208
+Code length residuals (10): 138.527559
+-- Total code length = 3831.983767 (27.518220% of 13925.260174)
+ ---- COLLECTION PATTERNS
+t0=1	((c [d=2] d)[r=20 p=15])[r=15 p=395]	Code length:1264.429600	sum(|E|)=0	Occs (600/600)	other
+t0=255	((a [d=140] a)[r=6 p=790])[r=3 p=15]	Code length:157.521372	sum(|E|)=0	Occs (36/36)	other
+t0=5135	(a)[r=24 p=15]	Code length:121.111349	sum(|E|)=40	Occs (24/24)	simple
+t0=2370	(a)[r=22 p=15]	Code length:100.246555	sum(|E|)=23	Occs (22/22)	simple
+t0=0	(a)[r=22 p=15]	Code length:100.255936	sum(|E|)=23	Occs (22/22)	simple
+t0=3555	(a)[r=23 p=15]	Code length:124.194104	sum(|E|)=45	Occs (23/23)	simple
+t0=4345	(a)[r=24 p=15]	Code length:136.120974	sum(|E|)=55	Occs (24/24)	simple
+t0=2765	(a)[r=50 p=15]	Code length:286.926804	sum(|E|)=155	Occs (50/50)	simple
+t0=384	(a)[r=25 p=15]	Code length:147.072589	sum(|E|)=64	Occs (25/25)	simple
+t0=3940	(a)[r=25 p=15]	Code length:148.072850	sum(|E|)=65	Occs (25/25)	simple
+t0=1171	(a)[r=53 p=15]	Code length:317.848229	sum(|E|)=180	Occs (53/53)	simple
+t0=4740	(a)[r=27 p=15]	Code length:185.952730	sum(|E|)=99	Occs (27/27)	simple
+t0=5530	(a)[r=29 p=10]	Code length:211.832308	sum(|E|)=121	Occs (29/29)	simple
+t0=784	(a)[r=28 p=14]	Code length:199.905440	sum(|E|)=111	Occs (28/28)	simple
+t0=1975	(a)[r=27 p=15]	Code length:191.965370	sum(|E|)=105	Occs (27/27)	simple

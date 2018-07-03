@@ -1,0 +1,17 @@
+3 >> Patts cover match, some worse, worse code length
+=== SETTINGS ===
+{'noise_lvl': 2, 'level': 2, 'inner': 'a', 'noise_dens': 0.2, 'nb_occs': 250, 'p_down': 10, 'j': 0, 'p_up': 25, 'overlap': True}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_nested=1)
+Code length patterns (1): 279.154739
+Code length residuals (0): 0.000000
+-- Total code length = 279.154739 (30.481289% of 915.823269)
+ ---- COLLECTION PATTERNS
+t0=0	((a)[r=17 p=12])[r=6 p=121]	Code length:279.154739	sum(|E|)=30	Occs (102/95)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=1 nb_simple=1)
+Code length patterns (1): 509.646671
+Code length residuals (0): 0.000000
+-- Total code length = 509.646671 (55.649020% of 915.823269)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=95 p=10]	Code length:509.646671	sum(|E|)=307	Occs (95/95)	simple

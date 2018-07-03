@@ -1,0 +1,33 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 2, 't0s': [0, 3353], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-45-18', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-5-7']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=2 nb_simple=1 nb_nested=1)
+Code length patterns (2): 1171.931168
+Code length residuals (44): 556.379246
+-- Total code length = 1728.310413 (25.691642% of 6727.130879)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=12 p=7])[r=7 p=132])[r=3 p=935]	Code length:607.654443	sum(|E|)=18	Occs (252/252)	nested
+t0=3353	(a)[r=236 p=13]	Code length:564.276724	sum(|E|)=64	Occs (236/236)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=15 nb_simple=13 nb_nested=2)
+Code length patterns (15): 2212.917404
+Code length residuals (0): 0.000000
+-- Total code length = 2212.917404 (32.895412% of 6727.130879)
+ ---- COLLECTION PATTERNS
+t0=3353	(a)[r=258 p=13]	Code length:888.222277	sum(|E|)=344	Occs (258/258)	simple
+t0=660	((a)[r=12 p=7])[r=3 p=803]	Code length:137.730726	sum(|E|)=3	Occs (36/36)	nested
+t0=0	((a)[r=13 p=7])[r=3 p=1331]	Code length:163.230144	sum(|E|)=23	Occs (39/39)	nested
+t0=1067	(a)[r=13 p=7]	Code length:60.493871	sum(|E|)=1	Occs (13/13)	simple
+t0=783	(a)[r=13 p=7]	Code length:64.493871	sum(|E|)=5	Occs (13/13)	simple
+t0=1199	(a)[r=14 p=7]	Code length:70.381094	sum(|E|)=9	Occs (14/14)	simple
+t0=527	(a)[r=13 p=7]	Code length:65.498172	sum(|E|)=6	Occs (13/13)	simple
+t0=264	(a)[r=12 p=7]	Code length:60.622807	sum(|E|)=3	Occs (12/12)	simple
+t0=132	(a)[r=13 p=7]	Code length:66.498400	sum(|E|)=7	Occs (13/13)	simple
+t0=1585	(a)[r=14 p=7]	Code length:72.381094	sum(|E|)=11	Occs (14/14)	simple
+t0=1727	(a)[r=13 p=7]	Code length:67.498172	sum(|E|)=8	Occs (13/13)	simple
+t0=1870	(a)[r=40 p=7]	Code length:209.716074	sum(|E|)=98	Occs (40/40)	simple
+t0=2398	(a)[r=26 p=7]	Code length:136.396442	sum(|E|)=52	Occs (26/26)	simple
+t0=919	(a)[r=14 p=7]	Code length:74.371114	sum(|E|)=13	Occs (14/14)	simple
+t0=396	(a)[r=14 p=7]	Code length:75.383148	sum(|E|)=14	Occs (14/14)	simple

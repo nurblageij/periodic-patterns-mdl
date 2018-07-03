@@ -1,0 +1,32 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 1, 'level': 3, 'add_noise': [('a', 0.1)], 'inner': 'a', 'noise_dens': 0.1, 'nb_occs': 500, 'p_down': 5, 'j': 1, 'p_up': 10, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_nested=1)
+Code length patterns (1): 584.234655
+Code length residuals (24): 282.396694
+-- Total code length = 866.631348 (27.898580% of 3106.363632)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=10 p=5])[r=8 p=146])[r=3 p=1207]	Code length:584.234655	sum(|E|)=26	Occs (240/240)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=16 nb_simple=13 nb_nested=3)
+Code length patterns (16): 1129.103258
+Code length residuals (16): 188.264463
+-- Total code length = 1317.367720 (42.408677% of 3106.363632)
+ ---- COLLECTION PATTERNS
+t0=3000	((a)[r=10 p=5])[r=4 p=146]	Code length:137.612943	sum(|E|)=6	Occs (40/40)	nested
+t0=1208	((a)[r=10 p=5])[r=4 p=292]	Code length:139.317650	sum(|E|)=3	Occs (40/40)	nested
+t0=1022	((a)[r=11 p=5])[r=3 p=913]	Code length:137.101355	sum(|E|)=16	Occs (33/33)	nested
+t0=1638	(a)[r=11 p=5]	Code length:55.986639	sum(|E|)=3	Occs (11/11)	simple
+t0=0	(a)[r=10 p=5]	Code length:51.143245	sum(|E|)=0	Occs (10/10)	simple
+t0=292	(a)[r=10 p=5]	Code length:51.143245	sum(|E|)=0	Occs (10/10)	simple
+t0=1354	(a)[r=10 p=5]	Code length:51.143245	sum(|E|)=0	Occs (10/10)	simple
+t0=2230	(a)[r=10 p=5]	Code length:51.143245	sum(|E|)=0	Occs (10/10)	simple
+t0=2561	(a)[r=10 p=5]	Code length:51.143245	sum(|E|)=0	Occs (10/10)	simple
+t0=2707	(a)[r=10 p=5]	Code length:52.143664	sum(|E|)=1	Occs (10/10)	simple
+t0=731	(a)[r=10 p=5]	Code length:53.138673	sum(|E|)=2	Occs (10/10)	simple
+t0=438	(a)[r=11 p=5]	Code length:58.990418	sum(|E|)=6	Occs (11/11)	simple
+t0=585	(a)[r=11 p=5]	Code length:58.990418	sum(|E|)=6	Occs (11/11)	simple
+t0=2415	(a)[r=10 p=5]	Code length:55.143245	sum(|E|)=4	Occs (10/10)	simple
+t0=876	(a)[r=11 p=5]	Code length:61.980804	sum(|E|)=9	Occs (11/11)	simple
+t0=146	(a)[r=11 p=5]	Code length:62.981225	sum(|E|)=10	Occs (11/11)	simple

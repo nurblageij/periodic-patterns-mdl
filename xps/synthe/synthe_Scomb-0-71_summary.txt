@@ -1,0 +1,28 @@
+0 >> Perfect match
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 5, 't0s': [0, 10020, 13146, 18291, 23561], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S2-56-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-36-18', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-19-9', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-37-9', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-15-13']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_nested=3 nb_simple=1 nb_other=1)
+Code length patterns (5): 4578.042061
+Code length residuals (0): 0.000000
+-- Total code length = 4578.042061 (15.766137% of 29037.183722)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=12 p=22])[r=6 p=325])[r=4 p=1979]	Code length:1324.152666	sum(|E|)=65	Occs (576/576)	other
+t0=10020	(a)[r=485 p=5]	Code length:1236.208792	sum(|E|)=232	Occs (485/485)	simple
+t0=13146	((a)[r=20 p=20])[r=8 p=447]	Code length:499.053833	sum(|E|)=107	Occs (160/160)	nested
+t0=18291	((a)[r=30 p=7])[r=15 p=271]	Code length:968.613184	sum(|E|)=0	Occs (450/450)	nested
+t0=23561	((a)[r=21 p=23])[r=10 p=544]	Code length:550.013586	sum(|E|)=63	Occs (210/210)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=7 nb_simple=3 nb_nested=3 nb_other=1)
+Code length patterns (7): 4688.013349
+Code length residuals (0): 0.000000
+-- Total code length = 4688.013349 (16.144862% of 29037.183722)
+ ---- COLLECTION PATTERNS
+t0=18291	((a)[r=30 p=7])[r=15 p=271]	Code length:968.613184	sum(|E|)=0	Occs (450/450)	nested
+t0=0	(((a [d=4] b)[r=12 p=22])[r=6 p=325])[r=4 p=1979]	Code length:1324.152666	sum(|E|)=65	Occs (576/576)	other
+t0=10020	(a)[r=485 p=5]	Code length:1236.208792	sum(|E|)=232	Occs (485/485)	simple
+t0=23561	((a)[r=21 p=23])[r=10 p=544]	Code length:550.013586	sum(|E|)=63	Occs (210/210)	nested
+t0=13146	((a)[r=20 p=20])[r=5 p=447]	Code length:339.080483	sum(|E|)=66	Occs (100/100)	nested
+t0=16275	(a)[r=20 p=20]	Code length:88.003573	sum(|E|)=9	Occs (20/20)	simple
+t0=15382	(a)[r=40 p=20]	Code length:181.941065	sum(|E|)=64	Occs (40/40)	simple

@@ -1,0 +1,12 @@
+Timestamp,End timestamp,Record category,Record category ID,Record category type,Duration,Source name,Source,Data,Day,Beginning of week,Beginning of month,Beginning of year
+"March 22, 2018 04:00",,A- - Childcare,1764,activity,,,,,2018-03-22,2018-03-17,2018-03-01,2018-01-01
+"March 22, 2018 02:10","March 22, 2018 04:00",Sleep,30,activity,6603,,,,2018-03-22,2018-03-17,2018-03-01,2018-01-01
+"March 22, 2018 01:30","March 22, 2018 01:50",A- -
+
+... originally downloaded from http://quantifiedawesome.com/records.csv on March 22, 2018 
+... total 39373 lines
+
+
+"November 27, 2011 12:40","November 27, 2011 12:40",Unpaid work - Tidy up,13,activity,0,tap_log,25,,2011-11-27,2011-11-26,2011-11-01,2011-01-01
+"November 27, 2011 10:00","November 27, 2011 12:40",Personal - Eat - Breakfast,23,activity,9600,tap_log,22,"{""note"":""Cornmeal pancakes""}",2011-11-27,2011-11-26,2011-11-01,2011-01-01
+"November 27, 2011 08:30","November 27, 2011 10:00",Discretionary - Social,17,activity,5400,tap_log,16,"{""note"":""Mom and Dad about stories""}",2011-11-27,2011-11-26,2011-11-01,2011-01-01

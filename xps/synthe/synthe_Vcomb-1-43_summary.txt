@@ -1,0 +1,28 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 4, 't0s': [0, 1478, 2535, 3099], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V2-52-17', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-11-4', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-31-8', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V2-56-10']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_simple=1 nb_other=1 nb_concat=1 nb_nested=1)
+Code length patterns (4): 3895.448194
+Code length residuals (151): 2068.802782
+-- Total code length = 5964.250976 (23.209440% of 25697.522220)
+ ---- COLLECTION PATTERNS
+t0=0	(a [d=4] b)[r=369 p=11]	Code length:1595.977135	sum(|E|)=73	Occs (738/738)	concat
+t0=1478	((a)[r=18 p=24])[r=5 p=521]	Code length:256.631587	sum(|E|)=9	Occs (90/90)	nested
+t0=2535	(a)[r=358 p=7]	Code length:777.763946	sum(|E|)=31	Occs (358/358)	simple
+t0=3099	(((a [d=4] b)[r=10 p=18])[r=7 p=192])[r=4 p=1407]	Code length:1265.075527	sum(|E|)=45	Occs (560/560)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=8 nb_simple=7 nb_nested=1)
+Code length patterns (8): 7627.398673
+Code length residuals (0): 0.000000
+-- Total code length = 7627.398673 (29.681456% of 25697.522220)
+ ---- COLLECTION PATTERNS
+t0=4	(b)[r=285 p=11]	Code length:691.934054	sum(|E|)=91	Occs (285/285)	simple
+t0=4510	((b)[r=70 p=18])[r=3 p=1407]	Code length:749.130567	sum(|E|)=264	Occs (210/210)	nested
+t0=2540	(a)[r=660 p=3]	Code length:2604.761593	sum(|E|)=1255	Occs (660/660)	simple
+t0=4063	(b)[r=20 p=18]	Code length:87.438500	sum(|E|)=12	Occs (20/20)	simple
+t0=0	(a)[r=317 p=10]	Code length:1598.029186	sum(|E|)=933	Occs (317/317)	simple
+t0=3120	(b)[r=129 p=8]	Code length:676.594333	sum(|E|)=386	Occs (129/129)	simple
+t0=5082	(a)[r=129 p=18]	Code length:706.348242	sum(|E|)=416	Occs (129/129)	simple
+t0=7320	(a)[r=84 p=18]	Code length:513.162199	sum(|E|)=312	Occs (84/84)	simple

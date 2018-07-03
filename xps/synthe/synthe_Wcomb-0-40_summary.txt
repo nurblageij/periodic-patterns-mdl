@@ -1,0 +1,21 @@
+10 >> No cover match, better code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 2, 't0s': [0, 4160], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_W1-30-2', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_W0-11-14']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=2 nb_simple=1 nb_nested=1)
+Code length patterns (2): 1250.447933
+Code length residuals (242): 3045.106030
+-- Total code length = 4295.553962 (41.732925% of 10292.961704)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=476 p=6]	Code length:979.697924	sum(|E|)=0	Occs (476/476)	simple
+t0=4160	((a)[r=20 p=19])[r=5 p=404]	Code length:270.750009	sum(|E|)=10	Occs (100/100)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=3 nb_simple=3)
+Code length patterns (3): 3672.384673
+Code length residuals (2): 25.166166
+-- Total code length = 3697.550839 (35.923099% of 10292.961704)
+ ---- COLLECTION PATTERNS
+t0=0	(a)[r=670 p=5]	Code length:2500.282886	sum(|E|)=1133	Occs (670/670)	simple
+t0=4564	(a)[r=118 p=15]	Code length:943.342447	sum(|E|)=677	Occs (118/118)	simple
+t0=4160	(a)[r=28 p=15]	Code length:228.759340	sum(|E|)=140	Occs (28/28)	simple

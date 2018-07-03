@@ -1,0 +1,27 @@
+6 >> Overall cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 5, 't0s': [0, 577, 1525, 2265, 3505], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-28-15', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-37-1', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-22-0', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-33-12', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-20-4']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_nested=4 nb_simple=1)
+Code length patterns (5): 2431.339754
+Code length residuals (0): 0.000000
+-- Total code length = 2431.339754 (21.972560% of 11065.345863)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=8 p=12])[r=6 p=125])[r=3 p=392]	Code length:449.841226	sum(|E|)=74	Occs (144/143)	nested
+t0=577	((a)[r=26 p=7])[r=7 p=170]	Code length:425.921781	sum(|E|)=0	Occs (182/182)	nested
+t0=1525	(((a)[r=7 p=24])[r=6 p=136])[r=3 p=494]	Code length:355.705965	sum(|E|)=16	Occs (126/126)	nested
+t0=2265	(a)[r=372 p=6]	Code length:873.787853	sum(|E|)=102	Occs (372/372)	simple
+t0=3505	(((a)[r=8 p=24])[r=5 p=160])[r=3 p=428]	Code length:326.082928	sum(|E|)=0	Occs (120/120)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=6 nb_simple=6)
+Code length patterns (6): 3950.344202
+Code length residuals (0): 0.000000
+-- Total code length = 3950.344202 (35.700142% of 11065.345863)
+ ---- COLLECTION PATTERNS
+t0=2069	(a)[r=513 p=5]	Code length:1961.289857	sum(|E|)=908	Occs (513/513)	simple
+t0=500	(a)[r=303 p=5]	Code length:1425.378835	sum(|E|)=791	Occs (303/303)	simple
+t0=0	(a)[r=24 p=12]	Code length:142.597866	sum(|E|)=62	Occs (24/24)	simple
+t0=4753	(a)[r=21 p=24]	Code length:138.806684	sum(|E|)=64	Occs (21/21)	simple
+t0=4533	(a)[r=21 p=12]	Code length:154.862926	sum(|E|)=80	Occs (21/21)	simple
+t0=375	(a)[r=15 p=9]	Code length:127.408035	sum(|E|)=64	Occs (15/15)	simple

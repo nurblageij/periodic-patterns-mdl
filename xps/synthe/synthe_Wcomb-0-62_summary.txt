@@ -1,0 +1,30 @@
+10 >> No cover match, better code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 3, 't0s': [0, 2897, 4452], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_W1-46-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_W1-40-14', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_W1-47-10']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=3 nb_nested=3)
+Code length patterns (3): 1816.997889
+Code length residuals (297): 3793.683552
+-- Total code length = 5610.681440 (43.749918% of 12824.438672)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=12 p=5])[r=7 p=103])[r=3 p=791]	Code length:629.304375	sum(|E|)=37	Occs (252/252)	nested
+t0=2897	((a)[r=27 p=6])[r=5 p=223]	Code length:367.450917	sum(|E|)=34	Occs (135/135)	nested
+t0=4452	(((a)[r=10 p=7])[r=8 p=78])[r=4 p=648]	Code length:820.242597	sum(|E|)=96	Occs (320/320)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=11 nb_simple=11)
+Code length patterns (11): 4536.571618
+Code length residuals (9): 114.960108
+-- Total code length = 4651.531726 (36.270841% of 12824.438672)
+ ---- COLLECTION PATTERNS
+t0=2897	(a)[r=115 p=6]	Code length:491.296283	sum(|E|)=230	Occs (115/115)	simple
+t0=4452	(a)[r=106 p=6]	Code length:461.413103	sum(|E|)=218	Occs (106/106)	simple
+t0=0	(a)[r=115 p=5]	Code length:504.259030	sum(|E|)=243	Occs (115/115)	simple
+t0=5100	(a)[r=328 p=6]	Code length:1463.471620	sum(|E|)=778	Occs (328/328)	simple
+t0=3566	(a)[r=40 p=4]	Code length:178.951924	sum(|E|)=66	Occs (40/40)	simple
+t0=1891	(a)[r=65 p=5]	Code length:294.177634	sum(|E|)=132	Occs (65/65)	simple
+t0=3764	(a)[r=34 p=6]	Code length:154.189908	sum(|E|)=53	Occs (34/34)	simple
+t0=754	(a)[r=118 p=5]	Code length:590.203486	sum(|E|)=323	Occs (118/118)	simple
+t0=1565	(a)[r=56 p=5]	Code length:284.428932	sum(|E|)=140	Occs (56/56)	simple
+t0=6941	(a)[r=10 p=7]	Code length:59.091193	sum(|E|)=4	Occs (10/10)	simple
+t0=6863	(a)[r=10 p=7]	Code length:55.088506	sum(|E|)=0	Occs (10/10)	simple

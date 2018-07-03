@@ -1,0 +1,27 @@
+6 >> Overall cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 5, 't0s': [0, 791, 1412, 2256, 3328], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-24-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-18-9', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-19-19', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-28-15', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-23-9']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_nested=5)
+Code length patterns (5): 2031.175965
+Code length residuals (0): 0.000000
+-- Total code length = 2031.175965 (25.889435% of 7845.578614)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=9 p=18])[r=5 p=132])[r=3 p=409]	Code length:386.495833	sum(|E|)=31	Occs (135/135)	nested
+t0=791	((a)[r=20 p=17])[r=4 p=181]	Code length:246.595426	sum(|E|)=24	Occs (80/80)	nested
+t0=1412	((a)[r=20 p=15])[r=10 p=153]	Code length:583.492662	sum(|E|)=124	Occs (200/194)	nested
+t0=2256	(((a)[r=8 p=12])[r=6 p=125])[r=3 p=392]	Code length:446.066555	sum(|E|)=74	Occs (144/143)	nested
+t0=3328	(((a)[r=7 p=19])[r=6 p=66])[r=3 p=263]	Code length:368.525489	sum(|E|)=35	Occs (126/120)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=6 nb_simple=6)
+Code length patterns (6): 3510.904363
+Code length residuals (0): 0.000000
+-- Total code length = 3510.904363 (44.750101% of 7845.578614)
+ ---- COLLECTION PATTERNS
+t0=3763	(a)[r=65 p=9]	Code length:324.043324	sum(|E|)=164	Occs (65/65)	simple
+t0=3144	(a)[r=107 p=6]	Code length:556.270908	sum(|E|)=313	Occs (107/107)	simple
+t0=791	(a)[r=408 p=5]	Code length:2156.215284	sum(|E|)=1314	Occs (408/408)	simple
+t0=0	(a)[r=26 p=18]	Code length:151.474342	sum(|E|)=68	Occs (26/26)	simple
+t0=654	(a)[r=10 p=18]	Code length:56.011398	sum(|E|)=3	Occs (10/10)	simple
+t0=396	(a)[r=38 p=5]	Code length:266.889109	sum(|E|)=160	Occs (38/38)	simple

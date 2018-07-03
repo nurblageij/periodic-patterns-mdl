@@ -1,0 +1,57 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 1, 'level': 3, 'add_noise': [('a', 0.1)], 'inner': 'a [d=1] c [d=2] d', 'noise_dens': 0.1, 'nb_occs': 500, 'p_down': 10, 'j': 3, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 2330.760679
+Code length residuals (98): 1414.642536
+-- Total code length = 3745.403215 (22.152188% of 16907.599717)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=1] c [d=2] d)[r=11 p=19])[r=8 p=265])[r=4 p=2196]	Code length:2330.760679	sum(|E|)=105	Occs (1056/1056)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=41 nb_simple=36 nb_nested=3 nb_concat=2)
+Code length patterns (41): 5339.892955
+Code length residuals (64): 923.848187
+-- Total code length = 6263.741142 (37.046898% of 16907.599717)
+ ---- COLLECTION PATTERNS
+t0=2	(((c)[r=11 p=19])[r=8 p=265])[r=4 p=2196]	Code length:883.534653	sum(|E|)=94	Occs (352/352)	nested
+t0=4	(((d)[r=11 p=19])[r=4 p=2196])[r=4 p=264]	Code length:517.095004	sum(|E|)=71	Occs (176/176)	nested
+t0=6606	(a [d=19] a)[r=16 p=133]	Code length:126.453799	sum(|E|)=15	Occs (32/32)	concat
+t0=4392	(a [d=19] a)[r=14 p=133]	Code length:121.622768	sum(|E|)=12	Occs (28/28)	concat
+t0=6588	(a)[r=16 p=133]	Code length:76.796162	sum(|E|)=10	Occs (16/16)	simple
+t0=4290	(a)[r=17 p=133]	Code length:81.669677	sum(|E|)=13	Occs (17/17)	simple
+t0=7652	(d)[r=11 p=19]	Code length:57.724926	sum(|E|)=0	Occs (11/11)	simple
+t0=3259	(d)[r=11 p=19]	Code length:59.724926	sum(|E|)=2	Occs (11/11)	simple
+t0=8182	(d)[r=11 p=19]	Code length:59.724926	sum(|E|)=2	Occs (11/11)	simple
+t0=8447	(d)[r=11 p=19]	Code length:59.724926	sum(|E|)=2	Occs (11/11)	simple
+t0=3524	(d)[r=11 p=19]	Code length:60.724755	sum(|E|)=3	Occs (11/11)	simple
+t0=6252	(d)[r=11 p=19]	Code length:60.725097	sum(|E|)=3	Occs (11/11)	simple
+t0=3786	(a)[r=17 p=132]	Code length:94.671670	sum(|E|)=26	Occs (17/17)	simple
+t0=1064	(d)[r=11 p=19]	Code length:61.724584	sum(|E|)=4	Occs (11/11)	simple
+t0=1594	(d)[r=11 p=19]	Code length:62.724755	sum(|E|)=5	Occs (11/11)	simple
+t0=5721	(d)[r=11 p=19]	Code length:62.724755	sum(|E|)=5	Occs (11/11)	simple
+t0=5986	(d)[r=11 p=19]	Code length:62.724755	sum(|E|)=5	Occs (11/11)	simple
+t0=1329	(d)[r=11 p=19]	Code length:63.725267	sum(|E|)=6	Occs (11/11)	simple
+t0=5454	(d)[r=11 p=19]	Code length:64.724755	sum(|E|)=7	Occs (11/11)	simple
+t0=7917	(d)[r=11 p=19]	Code length:64.725097	sum(|E|)=7	Occs (11/11)	simple
+t0=4054	(d)[r=11 p=18]	Code length:65.723595	sum(|E|)=8	Occs (11/11)	simple
+t0=1858	(d)[r=11 p=19]	Code length:66.725097	sum(|E|)=9	Occs (11/11)	simple
+t0=3789	(d)[r=11 p=19]	Code length:66.725097	sum(|E|)=9	Occs (11/11)	simple
+t0=2613	((a)[r=6 p=132])[r=3 p=19]	Code length:117.648819	sum(|E|)=12	Occs (18/18)	nested
+t0=0	(a)[r=26 p=19]	Code length:180.360357	sum(|E|)=94	Occs (26/26)	simple
+t0=531	(a)[r=44 p=19]	Code length:335.543389	sum(|E|)=214	Occs (44/44)	simple
+t0=1319	(a)[r=32 p=19]	Code length:247.060512	sum(|E|)=149	Occs (32/32)	simple
+t0=6776	(a)[r=7 p=265]	Code length:56.200755	sum(|E|)=6	Occs (7/7)	simple
+t0=3256	(a)[r=29 p=19]	Code length:210.206324	sum(|E|)=118	Occs (29/29)	simple
+t0=2142	(a)[r=30 p=19]	Code length:234.140179	sum(|E|)=140	Occs (30/30)	simple
+t0=3786	(a)[r=13 p=19]	Code length:100.469732	sum(|E|)=39	Occs (13/13)	simple
+t0=6248	(a)[r=13 p=19]	Code length:101.467564	sum(|E|)=40	Occs (13/13)	simple
+t0=4051	(a)[r=13 p=18]	Code length:101.467906	sum(|E|)=40	Occs (13/13)	simple
+t0=1849	(a)[r=16 p=16]	Code length:148.145781	sum(|E|)=81	Occs (16/16)	simple
+t0=8179	(a)[r=15 p=19]	Code length:81.224079	sum(|E|)=16	Occs (15/15)	simple
+t0=8444	(a)[r=11 p=19]	Code length:57.724926	sum(|E|)=0	Occs (11/11)	simple
+t0=4506	(a)[r=6 p=697]	Code length:66.012564	sum(|E|)=18	Occs (6/6)	simple
+t0=2991	(a)[r=12 p=19]	Code length:79.592100	sum(|E|)=20	Occs (12/12)	simple
+t0=6588	(a)[r=12 p=19]	Code length:81.592441	sum(|E|)=22	Occs (12/12)	simple
+t0=5972	(a)[r=14 p=19]	Code length:110.351201	sum(|E|)=47	Occs (14/14)	simple
+t0=2726	(a)[r=15 p=17]	Code length:128.243283	sum(|E|)=63	Occs (15/15)	simple

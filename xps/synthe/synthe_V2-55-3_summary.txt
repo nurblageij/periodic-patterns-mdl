@@ -1,0 +1,31 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 0, 'level': 3, 'add_noise': [('a', 0.1)], 'inner': 'a [d=4] b', 'noise_dens': 0.0, 'nb_occs': 500, 'p_down': 10, 'j': 2, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 934.918928
+Code length residuals (38): 503.060341
+-- Total code length = 1437.979269 (23.521026% of 6113.590616)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=10 p=18])[r=7 p=250])[r=3 p=1783]	Code length:934.918928	sum(|E|)=0	Occs (420/420)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=15 nb_simple=11 nb_concat=3 nb_nested=1)
+Code length patterns (15): 1623.204057
+Code length residuals (64): 847.259521
+-- Total code length = 2470.463578 (40.409372% of 6113.590616)
+ ---- COLLECTION PATTERNS
+t0=4	(((b)[r=10 p=18])[r=7 p=250])[r=3 p=1783]	Code length:501.755494	sum(|E|)=0	Occs (210/210)	nested
+t0=2427	(a [d=18] a)[r=12 p=250]	Code length:95.366026	sum(|E|)=3	Occs (24/24)	concat
+t0=36	(a [d=18] a [d=54] a [d=36] a [d=18] a)[r=8 p=250]	Code length:165.493412	sum(|E|)=3	Occs (40/40)	concat
+t0=3584	(a [d=18] a)[r=14 p=126]	Code length:116.306770	sum(|E|)=17	Occs (28/28)	concat
+t0=0	(a)[r=14 p=126]	Code length:72.065311	sum(|E|)=12	Occs (14/14)	simple
+t0=2569	(a)[r=11 p=250]	Code length:57.042611	sum(|E|)=3	Occs (11/11)	simple
+t0=2409	(a)[r=9 p=125]	Code length:58.994703	sum(|E|)=8	Occs (9/9)	simple
+t0=18	(a)[r=7 p=250]	Code length:47.228395	sum(|E|)=0	Occs (7/7)	simple
+t0=2033	(a)[r=25 p=18]	Code length:173.597392	sum(|E|)=92	Occs (25/25)	simple
+t0=2391	(a)[r=6 p=250]	Code length:52.586863	sum(|E|)=7	Occs (6/6)	simple
+t0=1783	(a)[r=12 p=18]	Code length:75.794576	sum(|E|)=19	Occs (12/12)	simple
+t0=90	(a)[r=5 p=1248]	Code length:45.847002	sum(|E|)=6	Occs (5/5)	simple
+t0=2551	(a)[r=6 p=518]	Code length:47.995734	sum(|E|)=3	Occs (6/6)	simple
+t0=554	(a)[r=6 p=768]	Code length:50.076317	sum(|E|)=6	Occs (6/6)	simple
+t0=2391	(a)[r=6 p=497]	Code length:63.053450	sum(|E|)=18	Occs (6/6)	simple

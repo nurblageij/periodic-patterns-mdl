@@ -1,0 +1,32 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 1, 'level': 3, 'add_noise': [('a', 0.5)], 'inner': 'a [d=4] b', 'noise_dens': 0.1, 'nb_occs': 500, 'p_down': 10, 'j': 2, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 932.970279
+Code length residuals (192): 2448.122138
+-- Total code length = 3381.092416 (43.961602% of 7691.012839)
+ ---- COLLECTION PATTERNS
+t0=0	(((a [d=4] b)[r=11 p=22])[r=6 p=255])[r=3 p=1535]	Code length:932.970279	sum(|E|)=47	Occs (396/396)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=16 nb_simple=15 nb_concat=1)
+Code length patterns (16): 3562.047911
+Code length residuals (55): 701.284987
+-- Total code length = 4263.332898 (55.432659% of 7691.012839)
+ ---- COLLECTION PATTERNS
+t0=4	(b)[r=198 p=22]	Code length:698.735920	sum(|E|)=284	Occs (198/198)	simple
+t0=1601	(a)[r=8 p=22]	Code length:50.414677	sum(|E|)=1	Occs (8/8)	simple
+t0=996	(a)[r=9 p=23]	Code length:59.216079	sum(|E|)=8	Occs (9/9)	simple
+t0=3301	(a)[r=7 p=22]	Code length:50.641356	sum(|E|)=3	Occs (7/7)	simple
+t0=1790	(a [d=22] a [d=255] a)[r=5 p=300]	Code length:109.054351	sum(|E|)=14	Occs (15/15)	concat
+t0=4345	(a)[r=25 p=8]	Code length:188.603602	sum(|E|)=107	Occs (25/25)	simple
+t0=1341	(a)[r=6 p=22]	Code length:46.914085	sum(|E|)=1	Occs (6/6)	simple
+t0=298	(a)[r=16 p=8]	Code length:127.302142	sum(|E|)=63	Occs (16/16)	simple
+t0=2738	(a)[r=32 p=5]	Code length:255.219277	sum(|E|)=160	Occs (32/32)	simple
+t0=0	(a)[r=26 p=7]	Code length:220.532881	sum(|E|)=137	Occs (26/26)	simple
+t0=3391	(a)[r=77 p=12]	Code length:651.695526	sum(|E|)=468	Occs (77/77)	simple
+t0=2111	(a)[r=26 p=9]	Code length:222.529551	sum(|E|)=139	Occs (26/26)	simple
+t0=510	(a)[r=48 p=11]	Code length:412.542447	sum(|E|)=286	Occs (48/48)	simple
+t0=1127	(a)[r=31 p=5]	Code length:237.255545	sum(|E|)=144	Occs (31/31)	simple
+t0=2987	(a)[r=22 p=16]	Code length:181.763576	sum(|E|)=106	Occs (22/22)	simple
+t0=473	(a)[r=5 p=961]	Code length:49.626897	sum(|E|)=8	Occs (5/5)	simple

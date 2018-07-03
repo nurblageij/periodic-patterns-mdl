@@ -1,0 +1,56 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 5, 't0s': [0, 4568, 8728, 13333, 18881], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-18-13', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-49-9', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-1-7', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-40-10', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-21-13']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_nested=4 nb_simple=1)
+Code length patterns (5): 3006.655519
+Code length residuals (111): 1598.342081
+-- Total code length = 4604.997601 (24.562449% of 18748.120630)
+ ---- COLLECTION PATTERNS
+t0=0	((a)[r=17 p=21])[r=10 p=359]	Code length:475.572139	sum(|E|)=65	Occs (170/170)	nested
+t0=4568	(((a)[r=12 p=6])[r=8 p=119])[r=3 p=1007]	Code length:753.007059	sum(|E|)=82	Occs (288/288)	nested
+t0=8728	(a)[r=220 p=17]	Code length:488.842574	sum(|E|)=15	Occs (220/220)	simple
+t0=13333	((a)[r=27 p=8])[r=13 p=305]	Code length:858.737075	sum(|E|)=90	Occs (351/351)	nested
+t0=18881	(((a)[r=9 p=10])[r=6 p=148])[r=3 p=955]	Code length:430.496673	sum(|E|)=15	Occs (162/162)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=35 nb_simple=29 nb_nested=4 nb_concat=2)
+Code length patterns (35): 5578.478993
+Code length residuals (31): 446.383825
+-- Total code length = 6024.862817 (32.135823% of 18748.120630)
+ ---- COLLECTION PATTERNS
+t0=19836	((a)[r=9 p=10])[r=6 p=148]	Code length:182.380484	sum(|E|)=8	Occs (54/54)	nested
+t0=13942	(a)[r=27 p=8]	Code length:96.185564	sum(|E|)=5	Occs (27/27)	simple
+t0=6051	((a)[r=12 p=6])[r=4 p=119]	Code length:176.284890	sum(|E|)=10	Occs (48/48)	nested
+t0=16993	(a)[r=27 p=8]	Code length:99.185766	sum(|E|)=8	Occs (27/27)	simple
+t0=8728	(a)[r=242 p=17]	Code length:906.735658	sum(|E|)=389	Occs (242/242)	simple
+t0=16369	(a)[r=29 p=8]	Code length:113.076705	sum(|E|)=18	Occs (29/29)	simple
+t0=18881	((a)[r=9 p=10])[r=4 p=148]	Code length:141.281658	sum(|E|)=1	Occs (36/36)	nested
+t0=15467	(a)[r=30 p=8]	Code length:119.027619	sum(|E|)=22	Occs (30/30)	simple
+t0=15162	(a)[r=29 p=8]	Code length:115.079518	sum(|E|)=20	Occs (29/29)	simple
+t0=14247	(a)[r=28 p=8]	Code length:112.130715	sum(|E|)=19	Occs (28/28)	simple
+t0=16688	(a)[r=29 p=8]	Code length:118.079181	sum(|E|)=23	Occs (29/29)	simple
+t0=14552	(a)[r=30 p=8]	Code length:124.027012	sum(|E|)=27	Occs (30/30)	simple
+t0=14857	(a)[r=30 p=8]	Code length:125.027888	sum(|E|)=28	Occs (30/30)	simple
+t0=15772	(a)[r=30 p=8]	Code length:126.027956	sum(|E|)=29	Occs (30/30)	simple
+t0=13333	(a)[r=59 p=8]	Code length:248.001564	sum(|E|)=94	Occs (59/59)	simple
+t0=0	(a)[r=185 p=21]	Code length:804.136010	sum(|E|)=400	Occs (185/185)	simple
+t0=5575	((a)[r=12 p=6])[r=3 p=119]	Code length:157.932896	sum(|E|)=15	Occs (36/36)	nested
+t0=16077	(a)[r=32 p=8]	Code length:147.933942	sum(|E|)=47	Occs (32/32)	simple
+t0=20801	(a [d=10] a [d=40] a [d=10] a)[r=6 p=148]	Code length:118.224943	sum(|E|)=2	Occs (24/24)	concat
+t0=6701	(a)[r=25 p=6]	Code length:131.299250	sum(|E|)=44	Occs (25/25)	simple
+t0=7178	(a)[r=13 p=6]	Code length:70.311049	sum(|E|)=6	Occs (13/13)	simple
+t0=6938	(a)[r=25 p=6]	Code length:135.299115	sum(|E|)=48	Occs (25/25)	simple
+t0=7299	(a)[r=12 p=6]	Code length:65.435979	sum(|E|)=3	Occs (12/12)	simple
+t0=4568	(a)[r=13 p=6]	Code length:71.310982	sum(|E|)=7	Occs (13/13)	simple
+t0=6582	(a)[r=13 p=6]	Code length:72.310915	sum(|E|)=8	Occs (13/13)	simple
+t0=4924	(a)[r=14 p=6]	Code length:78.196039	sum(|E|)=12	Occs (14/14)	simple
+t0=5396	(a)[r=13 p=6]	Code length:73.310848	sum(|E|)=9	Occs (13/13)	simple
+t0=5932	(a)[r=14 p=6]	Code length:79.196106	sum(|E|)=13	Occs (14/14)	simple
+t0=7418	(a)[r=12 p=6]	Code length:68.436046	sum(|E|)=6	Occs (12/12)	simple
+t0=4806	(a)[r=15 p=5]	Code length:86.089058	sum(|E|)=18	Occs (15/15)	simple
+t0=5041	(a)[r=45 p=6]	Code length:261.417147	sum(|E|)=135	Occs (45/45)	simple
+t0=4687	(a)[r=14 p=6]	Code length:82.196039	sum(|E|)=16	Occs (14/14)	simple
+t0=20841	(a [d=30] a)[r=6 p=147]	Code length:80.021187	sum(|E|)=5	Occs (12/12)	concat
+t0=19472	(a)[r=20 p=10]	Code length:135.634054	sum(|E|)=58	Occs (20/20)	simple
+t0=20647	(a)[r=7 p=148]	Code length:57.255207	sum(|E|)=4	Occs (7/7)	simple

@@ -1,0 +1,30 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 0.9, 't0_low': 0.2}
+{'k': 4, 't0s': [0, 1195, 3332, 5053], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-22-4', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-48-19', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V0-1-6', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_V1-36-4']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_simple=2 nb_nested=2)
+Code length patterns (4): 2500.286324
+Code length residuals (87): 1140.413202
+-- Total code length = 3640.699526 (26.251625% of 13868.473190)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=8 p=17])[r=6 p=155])[r=3 p=984]	Code length:407.297856	sum(|E|)=28	Occs (144/144)	nested
+t0=1195	(((a)[r=12 p=9])[r=7 p=203])[r=3 p=1441]	Code length:633.765585	sum(|E|)=39	Occs (252/252)	nested
+t0=3332	(a)[r=180 p=21]	Code length:412.725345	sum(|E|)=22	Occs (180/180)	simple
+t0=5053	(a)[r=418 p=9]	Code length:1046.497539	sum(|E|)=181	Occs (418/418)	simple
+=== FOUND ===
+ ---- COLLECTION STATS (Total=10 nb_simple=10)
+Code length patterns (10): 5408.812960
+Code length residuals (1): 13.108198
+-- Total code length = 5421.921158 (39.095300% of 13868.473190)
+ ---- COLLECTION PATTERNS
+t0=7093	(a)[r=208 p=9]	Code length:680.020660	sum(|E|)=233	Occs (208/208)	simple
+t0=4891	(a)[r=387 p=6]	Code length:1818.020802	sum(|E|)=1014	Occs (387/387)	simple
+t0=3029	(a)[r=14 p=9]	Code length:80.299061	sum(|E|)=17	Occs (14/14)	simple
+t0=0	(a)[r=53 p=17]	Code length:308.153629	sum(|E|)=169	Occs (53/53)	simple
+t0=1761	(a)[r=22 p=6]	Code length:137.597460	sum(|E|)=59	Occs (22/22)	simple
+t0=3247	(a)[r=176 p=8]	Code length:1104.248622	sum(|E|)=721	Occs (176/176)	simple
+t0=1968	(a)[r=116 p=9]	Code length:731.008744	sum(|E|)=467	Occs (116/116)	simple
+t0=1195	(a)[r=64 p=8]	Code length:418.939848	sum(|E|)=258	Occs (64/64)	simple
+t0=984	(a)[r=12 p=17]	Code length:82.520009	sum(|E|)=23	Occs (12/12)	simple
+t0=4802	(a)[r=5 p=21]	Code length:48.004125	sum(|E|)=1	Occs (5/5)	simple

@@ -1,0 +1,17 @@
+0 >> Perfect match
+=== SETTINGS ===
+{'noise_lvl': 2, 'level': 2, 'inner': 'a', 'noise_dens': 0.2, 'nb_occs': 250, 'p_down': 10, 'j': 0, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_nested=1)
+Code length patterns (1): 354.972628
+Code length residuals (0): 0.000000
+-- Total code length = 354.972628 (22.875643% of 1551.749289)
+ ---- COLLECTION PATTERNS
+t0=0	((a)[r=17 p=17])[r=8 p=350]	Code length:354.972628	sum(|E|)=34	Occs (136/136)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=1 nb_nested=1)
+Code length patterns (1): 354.972628
+Code length residuals (0): 0.000000
+-- Total code length = 354.972628 (22.875643% of 1551.749289)
+ ---- COLLECTION PATTERNS
+t0=0	((a)[r=17 p=17])[r=8 p=350]	Code length:354.972628	sum(|E|)=34	Occs (136/136)	nested

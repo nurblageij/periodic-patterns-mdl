@@ -1,0 +1,6 @@
+1. Downloaded dataset from https://archive.ics.uci.edu/ml/datasets/UbiqLog+%28smartphone+lifelogging%29
+2. Extract archive
+3. Collect application records from log files in extracted folders: 
+	>> grep "\"Application\":" UbiqLog4UCI/*/log_*.txt > all_log_applications_nonbin.txt
+4. Run data preparation scripts
+	>> mkdir prepared; python parse_data.py

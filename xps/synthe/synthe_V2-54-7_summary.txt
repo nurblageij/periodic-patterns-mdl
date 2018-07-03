@@ -1,0 +1,19 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 1, 'level': 2, 'add_noise': [('a', 0.1)], 'inner': 'a [d=4] b', 'noise_dens': 0.1, 'nb_occs': 500, 'p_down': 10, 'j': 2, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 1137.493729
+Code length residuals (50): 664.244640
+-- Total code length = 1801.738369 (24.177184% of 7452.226040)
+ ---- COLLECTION PATTERNS
+t0=0	((a [d=4] b)[r=23 p=21])[r=11 p=497]	Code length:1137.493729	sum(|E|)=60	Occs (506/506)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=3 nb_simple=3)
+Code length patterns (3): 2537.317455
+Code length residuals (1): 13.284893
+-- Total code length = 2550.602348 (34.226046% of 7452.226040)
+ ---- COLLECTION PATTERNS
+t0=4	(b)[r=253 p=21]	Code length:744.588074	sum(|E|)=220	Occs (253/253)	simple
+t0=189	(a)[r=287 p=21]	Code length:1639.888198	sum(|E|)=1042	Occs (287/287)	simple
+t0=0	(a)[r=15 p=15]	Code length:152.841183	sum(|E|)=90	Occs (15/15)	simple

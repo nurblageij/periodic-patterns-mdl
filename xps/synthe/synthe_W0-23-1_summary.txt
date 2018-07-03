@@ -1,0 +1,28 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 1, 'level': 3, 'add_noise': [('a', 0.5)], 'inner': 'a', 'noise_dens': 0.3, 'nb_occs': 250, 'p_down': 10, 'j': 0, 'p_up': 25, 'overlap': False}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_nested=1)
+Code length patterns (1): 353.240207
+Code length residuals (56): 634.374378
+-- Total code length = 987.614585 (49.535576% of 1993.748045)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=8 p=14])[r=5 p=165])[r=3 p=906]	Code length:353.240207	sum(|E|)=38	Occs (120/120)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=12 nb_simple=10 nb_concat=2)
+Code length patterns (12): 1142.924135
+Code length residuals (26): 294.530961
+-- Total code length = 1437.455096 (72.098132% of 1993.748045)
+ ---- COLLECTION PATTERNS
+t0=2297	(a)[r=9 p=14]	Code length:49.805778	sum(|E|)=2	Occs (9/9)	simple
+t0=906	(a [d=14] a)[r=6 p=330]	Code length:70.465745	sum(|E|)=8	Occs (12/12)	concat
+t0=1977	(a)[r=8 p=14]	Code length:49.005418	sum(|E|)=3	Occs (8/8)	simple
+t0=0	(a)[r=9 p=14]	Code length:55.805778	sum(|E|)=8	Occs (9/9)	simple
+t0=166	(a)[r=8 p=14]	Code length:51.005418	sum(|E|)=5	Occs (8/8)	simple
+t0=1126	(a [d=14] a)[r=5 p=344]	Code length:65.385886	sum(|E|)=4	Occs (10/10)	concat
+t0=488	(a)[r=21 p=14]	Code length:149.376710	sum(|E|)=79	Occs (21/21)	simple
+t0=330	(a)[r=11 p=10]	Code length:86.491407	sum(|E|)=35	Occs (11/11)	simple
+t0=1548	(a)[r=12 p=14]	Code length:85.316313	sum(|E|)=32	Occs (12/12)	simple
+t0=1238	(a)[r=24 p=13]	Code length:178.209424	sum(|E|)=102	Occs (24/24)	simple
+t0=881	(a)[r=24 p=14]	Code length:179.171421	sum(|E|)=103	Occs (24/24)	simple
+t0=1778	(a)[r=16 p=9]	Code length:122.884837	sum(|E|)=62	Occs (16/16)	simple

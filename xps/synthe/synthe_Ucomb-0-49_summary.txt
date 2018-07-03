@@ -1,0 +1,28 @@
+3 >> Patts cover match, some worse, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 5, 't0s': [0, 1963, 4741, 9700, 13323], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-48-16', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-31-7', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U1-32-2', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-2-11', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_U0-17-7']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=5 nb_simple=3 nb_nested=2)
+Code length patterns (5): 3233.498704
+Code length residuals (0): 0.000000
+-- Total code length = 3233.498704 (16.927643% of 19101.883294)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=10 p=9])[r=6 p=80])[r=4 p=287]	Code length:603.636783	sum(|E|)=31	Occs (240/236)	nested
+t0=1963	(a)[r=374 p=5]	Code length:816.260815	sum(|E|)=36	Occs (374/374)	simple
+t0=4741	(a)[r=432 p=9]	Code length:986.801392	sum(|E|)=91	Occs (432/432)	simple
+t0=9700	(a)[r=183 p=14]	Code length:437.223390	sum(|E|)=38	Occs (183/183)	simple
+t0=13323	((a)[r=22 p=18])[r=7 p=286]	Code length:389.576324	sum(|E|)=17	Occs (154/148)	nested
+=== FOUND ===
+ ---- COLLECTION STATS (Total=7 nb_simple=7)
+Code length patterns (7): 4136.241004
+Code length residuals (0): 0.000000
+-- Total code length = 4136.241004 (21.653577% of 19101.883294)
+ ---- COLLECTION PATTERNS
+t0=1963	(a)[r=374 p=5]	Code length:816.260815	sum(|E|)=36	Occs (374/374)	simple
+t0=4741	(a)[r=432 p=9]	Code length:986.801392	sum(|E|)=91	Occs (432/432)	simple
+t0=9700	(a)[r=183 p=14]	Code length:437.223390	sum(|E|)=38	Occs (183/183)	simple
+t0=1054	(a)[r=35 p=9]	Code length:126.890153	sum(|E|)=21	Occs (35/35)	simple
+t0=0	(a)[r=35 p=9]	Code length:129.890248	sum(|E|)=24	Occs (35/35)	simple
+t0=285	(a)[r=166 p=4]	Code length:745.540375	sum(|E|)=380	Occs (166/166)	simple
+t0=13323	(a)[r=148 p=18]	Code length:893.634631	sum(|E|)=564	Occs (148/148)	simple

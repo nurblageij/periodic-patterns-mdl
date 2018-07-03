@@ -1,0 +1,27 @@
+3 >> Patts cover match, some worse, worse code length
+=== SETTINGS ===
+{'k_up': 5, 'k_low': 2, 't0_up': 1.5, 't0_low': 1.2}
+{'k': 4, 't0s': [0, 3220, 8440, 10403], 'patt_fn': ['/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-50-1', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S1-49-17', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S0-29-15', '/m/home/home8/81/galbrue1/unix/TKTL/misc/itrami/per-pat/xps_synthe/synthe_S3-57-12']}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=4 nb_nested=3 nb_concat=1)
+Code length patterns (4): 4252.684587
+Code length residuals (0): 0.000000
+-- Total code length = 4252.684587 (14.712227% of 28905.784241)
+ ---- COLLECTION PATTERNS
+t0=0	(((a)[r=11 p=9])[r=8 p=112])[r=3 p=901]	Code length:735.468233	sum(|E|)=113	Occs (264/264)	nested
+t0=3220	(((a)[r=10 p=9])[r=7 p=185])[r=3 p=1330]	Code length:587.271859	sum(|E|)=72	Occs (210/210)	nested
+t0=8440	(((a)[r=7 p=13])[r=4 p=107])[r=3 p=475]	Code length:305.389464	sum(|E|)=44	Occs (84/84)	nested
+t0=10403	(a [d=1] c [d=2] d)[r=430 p=19]	Code length:2624.555031	sum(|E|)=0	Occs (1290/1290)	concat
+=== FOUND ===
+ ---- COLLECTION STATS (Total=7 nb_simple=3 nb_concat=2 nb_nested=2)
+Code length patterns (7): 4789.900650
+Code length residuals (0): 0.000000
+-- Total code length = 4789.900650 (16.570734% of 28905.784241)
+ ---- COLLECTION PATTERNS
+t0=10404	(c [d=2] d)[r=420 p=19]	Code length:1725.303375	sum(|E|)=0	Occs (840/840)	concat
+t0=10403	(a)[r=422 p=19]	Code length:876.432254	sum(|E|)=0	Occs (422/422)	simple
+t0=3220	(((a)[r=10 p=9])[r=7 p=185])[r=3 p=1330]	Code length:587.271859	sum(|E|)=72	Occs (210/210)	nested
+t0=0	(a)[r=264 p=9]	Code length:994.670448	sum(|E|)=433	Occs (264/264)	simple
+t0=8440	((a)[r=28 p=13])[r=3 p=473]	Code length:436.864053	sum(|E|)=198	Occs (84/84)	nested
+t0=18289	(c [d=2] d)[r=15 p=19]	Code length:104.995782	sum(|E|)=0	Occs (30/30)	concat
+t0=18326	(a)[r=13 p=19]	Code length:64.362880	sum(|E|)=0	Occs (13/13)	simple

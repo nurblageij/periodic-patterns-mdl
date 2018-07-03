@@ -1,0 +1,22 @@
+9 >> No cover match, worse code length
+=== SETTINGS ===
+{'noise_lvl': 0, 'level': 2, 'inner': 'a [d=4] b', 'noise_dens': 0.0, 'nb_occs': 500, 'p_down': 10, 'j': 2, 'p_up': 25, 'overlap': True}
+=== HIDDEN ===
+ ---- COLLECTION STATS (Total=1 nb_other=1)
+Code length patterns (1): 766.286973
+Code length residuals (0): 0.000000
+-- Total code length = 766.286973 (17.890726% of 4283.151934)
+ ---- COLLECTION PATTERNS
+t0=0	((a [d=4] b)[r=22 p=17])[r=8 p=277]	Code length:766.286973	sum(|E|)=0	Occs (352/352)	other
+=== FOUND ===
+ ---- COLLECTION STATS (Total=6 nb_concat=5 nb_other=1)
+Code length patterns (6): 1074.579358
+Code length residuals (28): 340.705268
+-- Total code length = 1415.284626 (33.043064% of 4283.151934)
+ ---- COLLECTION PATTERNS
+t0=362	((a [d=4] b)[r=12 p=17])[r=6 p=277]	Code length:351.814383	sum(|E|)=0	Occs (144/144)	other
+t0=2024	(a [d=4] b)[r=17 p=17]	Code length:104.589562	sum(|E|)=0	Occs (34/34)	concat
+t0=0	(a [d=4] b)[r=17 p=17]	Code length:113.254187	sum(|E|)=0	Occs (34/34)	concat
+t0=327	(b [d=13] a [d=4] b [d=13] a [d=4] b)[r=8 p=277]	Code length:144.057982	sum(|E|)=0	Occs (40/40)	concat
+t0=0	(a [d=4] b [d=13] a [d=4] b [d=47] a [d=4] b)[r=8 p=277]	Code length:176.445498	sum(|E|)=0	Occs (48/48)	concat
+t0=17	(a [d=4] b [d=13] a [d=4] b [d=13] a [d=4] b)[r=9 p=277]	Code length:184.417745	sum(|E|)=5	Occs (54/54)	concat
