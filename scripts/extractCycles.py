@@ -390,11 +390,6 @@ def extract_cycles_fold_sub(occs, alpha, data_details, bound_dE, eff_trip, eff_c
             if (current[-1], nxt[-1]) in triples_tmp:
                 del triples_tmp[(current[-1], nxt[-1])]
             current.append(nxt[-1])
-        # pdb.set_trace()
-        # if len(chains) > 100:
-        #     pdb.set_trace()
-        #     print "Nb chains fwd left ", len(pairs_chain_fwd)
-        #     print "Nb chains", len(chains)
         
         occs_chain = [occs[c] for c in current]
         prd = computePeriod(occs_chain)
@@ -443,12 +438,6 @@ def run_test(occs, alpha, data_details, dets=None):
     noc_cycl = [{"alpha": alpha, "occs": occs, "p": None}]
     noc_cost = computeLengthRC(data_details, noc_cycl)
     results.append({"meth": "one cycle", "CL": noc_cost, "RT": 0, "cycles": noc_cycl})
-   
-    # if dets is not None:
-    #     sol = make_solution(dets, alpha)
-    #     # print "ORG:", sol
-    #     sol_cost = computeLengthRC(nbOccs, deltaT, sol)
-    #     results.append({"meth": "org_sol", "CL": sol_cost, "RT": 0, "cycles": sol})
 
     tic = datetime.datetime.now()
     dyn_cycles = compute_cycles_dyn(occs, alpha, data_details)
@@ -456,13 +445,6 @@ def run_test(occs, alpha, data_details, dets=None):
     elsp_dyn = datetime.datetime.now()-tic
     dyn_cost = computeLengthRC(data_details, dyn_cycles)
     results.append({"meth": "segments", "CL": dyn_cost, "RT": elsp_dyn.total_seconds(), "cycles": dyn_cycles})
-    
-    # tic = datetime.datetime.now()
-    # fld_cycles = compute_cycles_fld(occs, alpha, deltaT, nbOccs)
-    # # print "FLD-OLD:", fld_cycles
-    # elsp_fld = datetime.datetime.now()-tic
-    # fld_cost = computeLengthRC(nbOccs, deltaT, fld_cycles)
-    # results.append({"meth": "fld-old", "CL": fld_cost, "RT": elsp_fld.total_seconds(), "cycles": fld_cycles})
 
     tic = datetime.datetime.now()
     fold_cycles = compute_cycles_fold(occs, alpha, data_details)
@@ -474,83 +456,13 @@ def run_test(occs, alpha, data_details, dets=None):
     return results
 
 if __name__ == "__main__":
-    # comb_params = [[{"t0": 0, "length_org": 40, "period_org": 10, "beta": .25, "max": 0.2},
-    #                 {"proba_add": 0.}]]
     comb_params = [[{"t0": 0, "length_org": 50, "period_org": 10},
                         {"t0": 1.1, "length_org": 40, "period_org": 34},
                         {"proba_add": 0.}]]
 
-    # comb_params = [[{"t0": 0, "length_org": 5, "period_org": 10},
-    #                 {"t0": 1., "length_org": 4, "period_org": 34},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 4, "period_org": 34},
-    #                 {"t0": 1., "length_org": 5, "period_org": 10},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 4, "period_org": 34},
-    #                {"t0": 1., "length_org": 5, "period_org": 10},
-    #                {"t0": 1., "length_org": 6, "period_org": 3},
-    #                {"t0": 1., "length_org": 5, "period_org": 10},
-    #                {"t0": 1., "length_org": 4, "period_org": 34},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 4, "period_org": 34},
-    #                {"t0": 1., "length_org": 5, "period_org": 5},
-    #                {"t0": 1., "length_org": 6, "period_org": 23},
-    #                {"t0": 1., "length_org": 5, "period_org": 5},
-    #                {"t0": 1., "length_org": 4, "period_org": 34},
-    #                 {"proba_add": 0.}]]
 
-    # comb_params = [[{"t0": 0, "length_org": 300, "period_org": 10, "beta": .25, "max": 0.2},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 1000, "period_org": 10, "beta": .25, "max": 0.2},
-    #                 {"proba_add": 0.2}],
-    #                [{"t0": 0, "length_org": 1000, "period_org": 10, "beta": .25, "max": 0.2},
-    #                 {"proba_add": 0.3}],
-    #                 [{"t0": 0, "length_org": 1000, "period_org": 10, "beta": .01, "max": 0.2},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 1000, "period_org": 10, "beta": .01, "max": 0.2},
-    #                 {"proba_add": 0.2}],
-    #                [{"t0": 0, "length_org": 1000, "period_org": 10, "beta": .01, "max": 0.2},
-    #                 {"proba_add": 0.3}]]
-    
-    # comb_params = [[{"t0": 0, "length_org": 100, "period_org": 10},
-    #                 {"t0": 0.4, "length_org": 80, "period_org": 34},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 100, "period_org": 10},
-    #                 {"t0": 0.4, "length_org": 80, "period_org": 34},
-    #                 {"proba_add": .3}],
-    #                [{"t0": 0, "length_org": 100, "period_org": 10, "beta": .25, "max": 0.2},
-    #                 {"t0": 0.4, "length_org": 80, "period_org": 34},
-    #                 {"proba_add": .3}],
-    #                [{"t0": 0, "length_org": 100, "period_org": 10, "beta": .01, "max": 0.2},
-    #                 {"t0": 0.4, "length_org": 80, "period_org": 34},
-    #                 {"proba_add": .3}]]
-
-    # comb_params = [[{"t0": 0, "length_org": 100, "length_pm": .3, "period_org": 10, "period_pm": .1},
-    #                 {"t0": 0.4, "length_org": 80, "length_pm": .3, "period_org": 34, "period_pm": .1},
-    #                 {"proba_add": 0.}],
-    #                [{"t0": 0, "length_org": 100, "length_pm": .3, "period_org": 10, "period_pm": .1},
-    #                 {"t0": 0.4, "length_org": 80, "length_pm": .3, "period_org": 34, "period_pm": .1},
-    #                 {"proba_add": .3}],
-    #                [{"t0": 0, "length_org": 100, "length_pm": .3, "period_org": 10, "period_pm": .1, "beta": .25, "max": 0.2},
-    #                 {"t0": 0.4, "length_org": 80, "length_pm": .3, "period_org": 34, "period_pm": .1},
-    #                 {"proba_add": .3}],
-    #                [{"t0": 0, "length_org": 100, "length_pm": .3, "period_org": 10, "period_pm": .1, "beta": .1, "max": 0.2},
-    #                 {"t0": 0.4, "length_org": 80, "length_pm": .3, "period_org": 34, "period_pm": .1},
-    #                 {"proba_add": .3}]]
-    
-
-    # for ci, cparams in enumerate(comb_params):
-    #     seq, dets = generateSequences(cparams)
-
-
-    # fparams = {"filename": "/home/egalbrun/TKTL/misc/itrami/per-pat/data/traces/prepared/trace_bugzilla_1_data.dat",
-    #                  "timestamp": False, "events": ["2269:X"], "max_len": 700, "min_len": 20}
-    # fparams = {"filename": "/home/egalbrun/TKTL/misc/itrami/per-pat/data/traces/prepared/trace_kptrace_3zap_0_data.dat",
-    #                "timestamp": False, "events": ["*"], "min_len": 3000, "max_len": 10000}
     fparams = {"filename": "/home/egalbrun/TKTL/misc/itrami/per-pat/data/traces/prepared/trace_kptrace_3zap_1_data.dat",
                 "timestamp": False, "events": ["*"], "min_len": 30, "max_len": 3000}
-    # fparams = {"filename": "/home/egalbrun/TKTL/misc/itrami/per-pat/data/traces/prepared/trace_bugzilla_1_data.dat",
-    #                "timestamp": False, "events": ["*"], "min_len": 30, "max_len": 3000}
 
     # seqs = readSequence(fparams)
 
