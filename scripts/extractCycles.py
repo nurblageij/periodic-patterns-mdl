@@ -455,22 +455,13 @@ def run_test(occs, alpha, data_details, dets=None):
     
     return results
 
+
 if __name__ == "__main__":
-    comb_params = [[{"t0": 0, "length_org": 50, "period_org": 10},
-                        {"t0": 1.1, "length_org": 40, "period_org": 34},
-                        {"proba_add": 0.}]]
-
-
-    fparams = {"filename": "/home/egalbrun/TKTL/misc/itrami/per-pat/data/traces/prepared/trace_kptrace_3zap_1_data.dat",
-                "timestamp": False, "events": ["*"], "min_len": 30, "max_len": 3000}
-
-    # seqs = readSequence(fparams)
-
     seq = []
     for i in range(15):
         seq.append(i*400+numpy.arange(0, 20, 2))
     seqs = {0: numpy.hstack(seq)}
-    
+
     for ci, seq in seqs.items():
         dets = None
 
