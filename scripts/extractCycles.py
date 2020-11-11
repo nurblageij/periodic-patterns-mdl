@@ -414,6 +414,7 @@ def extract_cycles_fold_sub(occs, alpha, data_details, bound_dE, eff_trip, eff_c
 
 def compute_cycles_fold(occs, alpha, data_details, residuals=True, inc_triples=True):
     costOne = cost_one(data_details, alpha)
+    cost3 = 3 * costOne
     bound_dE = numpy.log2(data_details["deltaT"]+1) - 2
     chains, triples = extract_cycles_fold(occs, alpha, data_details, bound_dE, costOne, costOne)
     cycles = []
@@ -557,7 +558,6 @@ if __name__ == "__main__":
     for i in range(15):
         seq.append(i*400+numpy.arange(0, 20, 2))
     seqs = {0: numpy.hstack(seq)}
-
     
     for ci, seq in seqs.items():
         dets = None
