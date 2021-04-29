@@ -158,7 +158,7 @@ for fn in sorted(glob.glob(XPS_REP+XPS_SUB+LOG_MATCH)):
                 inter_dt[tmpp.group("inter")] = parse_patts_stats(ppfn)
 
         if add_stats is None:
-            add_stats = sorted(set(inter_dt.values()[0].keys()).difference(MAIN_STATS))
+            add_stats = sorted(set(list(inter_dt.values())[0].keys()).difference(MAIN_STATS))
             mks = sorted(more_stats.keys())
             fo.write(format_stats_head(add_stats, mks))
 
