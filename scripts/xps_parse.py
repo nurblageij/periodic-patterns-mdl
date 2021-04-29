@@ -79,7 +79,7 @@ def parse_log_times(fn):
     try:
         more_stats["nb_rounds"] = max([int(k.split()[-1]) for k in times.keys() if re.match("Combination round \d+$", k)])
     except ValueError:
-        print fn
+        print(fn)
         pdb.set_trace()
     X = numpy.array(more_stats.pop("evs_O"))
     more_stats.update(dict([("evNbO_>10", numpy.sum(X>10, axis=0))]+[("evNbO_%s" % pref,  nfun(X)) for pref, nfun in [("median", numpy.median), ("mean", numpy.mean), ("max", numpy.max)]]))
