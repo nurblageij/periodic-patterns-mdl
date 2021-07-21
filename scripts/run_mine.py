@@ -1162,6 +1162,14 @@ if __name__ == "__main__":
     parser.add_argument("--min_len", type=int, help="events with fewer occurrences will be discarded", default=argparse.SUPPRESS)
     parser.add_argument("--max_len", type=int, help="events with more occurrences will be discarded", default=argparse.SUPPRESS)
 
+    # sacha format
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("-I", "--instant", action="store_true", dest="I", help="Use suffix I for instantaneous events, instead of S--E pair (sacha only)", default=argparse.SUPPRESS)
+    # group.add_argument("--instant", action="store_true", dest="I", help=argparse.SUPPRESS, default=argparse.SUPPRESS)
+    group.add_argument("--no-instant", action="store_false", dest="I", help=argparse.SUPPRESS, default=argparse.SUPPRESS)
+    parser.add_argument("-G", "--granularity", type=int, help="Time granularity, used as divisor for the original times (sacha only)", default=argparse.SUPPRESS)
+    parser.add_argument("-E", "--drop-event", type=str, dest="drop_event_codes", action="append", help="Filter events using hierachical codes, events of the corresponding types and sub-types will be dropped", default=argparse.SUPPRESS)
+
     # output
     parser.add_argument("-x", "--output_folder", type=str, help="Folder in which to save the results and logs", default=argparse.SUPPRESS)
     parser.add_argument("-o", "--output_basename", type=str, help="Basenames for the files in which to save the results and logs", default=argparse.SUPPRESS)
@@ -1218,7 +1226,7 @@ if __name__ == "__main__":
                 params["filename"] = params.get("input_folder", "")+params.get("input_file")
                 basename = params.get("output_basename", "xps")
 
-            if series is not None and re.match("sacha", series):
+            if (series is not None and re.match("sacha", series)) or re.search("[^a-zA-Z0-9]sacha[^a-zA-Z0-9]", "_"+params["filename"]+"_"):
                 seqs = readSequenceSacha(params)
             else:
                 seqs = readSequence(params)
