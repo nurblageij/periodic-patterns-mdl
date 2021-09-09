@@ -7,8 +7,14 @@ import pdb
 from readData import readSequence
 from classPatterns import DataSequence, computeLengthRC, computeLengthCycle, computeLengthResidual, computePeriod, cost_triple, cost_one
 
+# DYN_BLOCK_SIZE = 100
+# STEP_SIZE = 80
 DYN_BLOCK_SIZE = 100
-STEP_SIZE = 80
+DYN_BOVER_SIZE = 20
+
+# DYN_BLOCK_SIZE = 20
+# DYN_BOVER_SIZE = 5
+STITCH = True
 
 # make a "original" solution from synthetic data generation details
 
@@ -56,7 +62,7 @@ def compute_table_dyn_ov(occs, alpha, data_details):
     for ia in range(ilast - 2):
         iz = ia+2
         score_best = computeLengthCycle(data_details, {"p": None, "alpha": alpha, "occs": [occs[i] for i in range(ia, iz+1)]})
-        #print("+ Test-3\t", ia, ia, iz, "\t", score_best, 3*score_res )
+        # print("+ Test-3\t", ia, ia, iz, "\t", score_best, 3*score_res )
         if score_best < 3*score_res:
             scores[(ia, iz)] = score_best
             spoints[(ia, iz)] = None
@@ -69,10 +75,10 @@ def compute_table_dyn_ov(occs, alpha, data_details):
             iz = ia+k
             score_best = computeLengthCycle(data_details, {"p": None, "alpha": alpha, "occs": [occs[i] for i in range(ia, iz+1)]})
             spoint_best = None
-            #print("+ Test\t", ia, ia, iz, "\t", score_best)
+            # print("+ Test\t", ia, ia, iz, "\t", score_best)
 
             for im in range(ia+1, iz):
-                ## print("- Test", ia, im, iz)
+                # print("- Test", ia, im, iz)
                 if im-ia <= 2:
                     score_left = score_res*(im-ia+1)
                 else:
@@ -122,7 +128,7 @@ def compute_table_dyn(occs, alpha, data_details):
     for ia in range(ilast - 2):
         iz = ia+2
         score_best = computeLengthCycle(data_details, {"p": None, "alpha": alpha, "occs": [occs[i] for i in range(ia, iz+1)]})
-        #print("+ Test-3\t", ia, ia, iz, "\t", score_best, 3*score_res )
+        # print("+ Test-3\t", ia, ia, iz, "\t", score_best, 3*score_res)
         if score_best < 3*score_res:
             scores[(ia, iz)] = score_best
             spoints[(ia, iz)] = None
@@ -137,7 +143,7 @@ def compute_table_dyn(occs, alpha, data_details):
 
             score_best = computeLengthCycle(data_details, {"p": None, "alpha": alpha, "occs": [occs[i] for i in range(ia, iz+1)]})
             spoint_best = None
-            #print("+ Test\t", ia, ia, iz, "\t", score_best)
+            # print("+ Test\t", ia, ia, iz, "\t", score_best)
 
             for im in range(ia, iz):
                 if im-ia+1 <= 2:
@@ -194,15 +200,108 @@ def combine_splits(splits, adj_splits):
     return splits
 
 
+def stitch_fix(occs, alpha, data_details, splits, costs):
+    cycles = []
+    covered = set()
+    seen = set()
+    fwd_stitched = {}
+    bwd_stitched = {}
+
+    ends = []
+    ext_diffs = {}
+    for si, s in enumerate(splits):
+        diffs = numpy.diff([occs[i] for i in range(s[0], s[1]+1)])
+        ext_diffs[si] = (numpy.min(diffs), numpy.max(diffs))
+        ends.extend([(s[0], 0, si), (s[1], -1, si)])
+    ends.sort()
+    i = 0
+    stitched = {}
+    while i < len(ends):
+        while i < len(ends) and ends[i][1] == 0:  # look for an ending block
+            i += 1
+        j = i+1
+        while j < len(ends):
+            if ends[j][1] == 0:  # and subsequent starting block
+                gap = occs[ends[j][0]] - occs[ends[i][0]]
+                low_p = numpy.minimum(ext_diffs[ends[i][-1]][0], ext_diffs[ends[j][-1]][0])
+                high_p = numpy.maximum(ext_diffs[ends[i][-1]][-1], ext_diffs[ends[j][-1]][-1])
+                # low_p = numpy.maximum(ext_diffs[ends[i][-1]][0], ext_diffs[ends[j][-1]][0])
+                # high_p = numpy.minimum(ext_diffs[ends[i][-1]][-1], ext_diffs[ends[j][-1]][-1])
+                if gap > high_p:  # too far, everything beyond will also be too far
+                    j = len(ends)
+                elif low_p <= gap <= high_p:
+                    si, sj = (ends[i][-1], ends[j][-1])
+                    occsi = [occs[x] for x in range(splits[si][0], splits[si][1]+1)]
+                    occsj = [occs[x] for x in range(splits[sj][0], splits[sj][1]+1)]
+                    stitched_occs = occsi + occsj
+                    prd = computePeriod(stitched_occs)
+                    cst = computeLengthCycle(data_details, {"p": prd, "alpha": alpha, "occs": stitched_occs})
+                    if splits[si] not in costs:
+                        prdi = computePeriod(occsi)
+                        costs[splits[si]] = computeLengthCycle(data_details, {"p": prdi, "alpha": alpha, "occs": occsi})
+                    if splits[sj] not in costs:
+                        prdj = computePeriod(occsj)
+                        costs[splits[sj]] = computeLengthCycle(data_details, {"p": prdj, "alpha": alpha, "occs": occsj})
+
+                    if cst < costs[splits[si]] + costs[splits[sj]]:  # successful stitch
+                        if si not in fwd_stitched:
+                            fwd_stitched[si] = []
+                        fwd_stitched[si].append((cst/len(stitched_occs), cst, prd, sj))
+                        if sj not in bwd_stitched:
+                            bwd_stitched[sj] = []
+                        bwd_stitched[sj].append((cst/len(stitched_occs), cst, prd, si))
+            j += 1
+        i += 1
+
+    for k in fwd_stitched.keys():
+        fwd_stitched[k].sort()
+    for k in bwd_stitched.keys():
+        bwd_stitched[k].sort()
+    chains = set()
+    fwd_inits = set(fwd_stitched.keys()).difference(bwd_stitched.keys())
+    for i in fwd_inits:
+        chain = [i]
+        while chain[-1] in fwd_stitched:
+            chain.append(fwd_stitched[chain[-1]][0][-1])
+        chains.add(tuple(chain))
+    bwd_inits = set(bwd_stitched.keys()).difference(fwd_stitched.keys())
+    for i in bwd_inits:
+        chain = [i]
+        while chain[-1] in bwd_stitched:
+            chain.append(bwd_stitched[chain[-1]][0][-1])
+        chains.add(tuple(chain[::-1]))
+    for chain in chains:
+        stitched_occs = []
+        pieces_cst = []
+        for si in chain:
+            pieces_cst.append(costs[splits[si]])
+            stitched_occs.extend([occs[x] for x in range(splits[si][0], splits[si][1]+1)])
+        prd = computePeriod(stitched_occs)
+        cst = computeLengthCycle(data_details, {"p": prd, "alpha": alpha, "occs": stitched_occs})
+        if cst < numpy.sum(pieces_cst):
+            cycles.append({"alpha": alpha, "occs": stitched_occs, "p": prd, "cost": cst})
+            covered.update(stitched_occs)
+            seen.update([splits[si] for si in chain])
+        else:
+            pdb.set_trace()
+            print(cst, pieces_cst)
+    return cycles, covered, seen
+
+
 def compute_cycles_dyn(occs, alpha, data_details, residuals=True):
     ilast = len(occs)
     if DYN_BLOCK_SIZE == 0 or ilast > 2 * DYN_BLOCK_SIZE:
-        # compute best split points on ovelapping blocks of the sequence, for efficiency
+        # compute best split points on successive blocks of the sequence, for efficiency
         splits = []
         pstart = 0
         costs = {}
-        while pstart+.5*DYN_BLOCK_SIZE < ilast:
-            next_block = occs[pstart:pstart+DYN_BLOCK_SIZE]
+        # while pstart+.5*DYN_BLOCK_SIZE < ilast:
+        #     next_block = occs[pstart:pstart+DYN_BLOCK_SIZE]
+        while pstart < ilast:
+            if pstart+1.5*DYN_BLOCK_SIZE < ilast:
+                next_block = occs[pstart:pstart+DYN_BLOCK_SIZE]
+            else:
+                next_block = occs[pstart:]
             blast = len(next_block)
 
             scores, spoints = compute_table_dyn(next_block, alpha, data_details)
@@ -212,16 +311,24 @@ def compute_cycles_dyn(occs, alpha, data_details, residuals=True):
             costs.update(dict([((ia+pstart, iz+pstart), scores[(ia, iz)]) for (ia, iz) in bsplits]))
             splits = combine_splits(splits, adj_splits)
 
-            pstart += STEP_SIZE
+            if pstart+1.5*DYN_BLOCK_SIZE < ilast:
+                pstart += DYN_BLOCK_SIZE - DYN_BOVER_SIZE
+            else:
+                pstart = ilast+1
     else:
         scores, spoints = compute_table_dyn(occs, alpha, data_details)
         splits = recover_splits_rec(spoints, 0, ilast-1, singletons=False)
         costs = scores
 
-    cycles = []
-    covered = set()
+    if STITCH:
+        cycles, covered, seen = stitch_fix(occs, alpha, data_details, splits, costs)
+    else:
+        cycles = []
+        covered = set()
+        seen = set()
+
     for si, s in enumerate(splits):
-        if s[1]-s[0] > 1:  # contains at least 3 elements
+        if si not in seen and s[1]-s[0] > 1:  # contains at least 3 elements
             cov = [occs[i] for i in range(s[0], s[1]+1)]
             prd = computePeriod(cov)
             if s in costs:
@@ -286,7 +393,7 @@ def select_triples(triples, cycles, covered, occs, alpha):
         if len(covered.intersection(t[-1])) == 0:
             covered.update(t[-1])
             cycles.append({"alpha": alpha, "occs": [occs[tt] for tt in t[-1]], "p": None})
-    #print("--- t:", datetime.datetime.now()-tic)
+    # print("--- t:", datetime.datetime.now()-tic)
     return cycles
 
 
@@ -295,7 +402,7 @@ def extract_cycles_fold(occs, alpha, data_details, bound_dE, eff_trip, eff_chain
         return extract_cycles_fold_sub(occs, alpha, data_details, bound_dE, eff_trip, eff_chain, max_p=max_p)
     else:
         chains, triples = extract_cycles_fold_sub(occs[:1500], alpha, data_details, bound_dE, eff_trip, eff_chain, max_p=max_p)
-        for i in range(1, len(occs)/1500):
+        for i in range(1, len(occs)//1500):
             chains_tmp, triples_tmp = extract_cycles_fold_sub(occs[i*1500:(i+1)*1500], alpha, data_details, bound_dE, eff_trip, eff_chain, i*1500, max_p=max_p)
             chains.extend(chains_tmp)
             triples.extend(triples_tmp)
@@ -414,7 +521,7 @@ def extract_cycles_fold_sub(occs, alpha, data_details, bound_dE, eff_trip, eff_c
         if (eff_chain < 0 and cost < (-eff_chain)*(len(occs_chain)-1)) or (cost/len(occs_chain) < eff_chain):
             chains.append({"alpha": alpha, "p": prd, "cost": cost, "pos": current, "occs": occs_chain, "uncov": set(current)})
     # print(numpy.bincount([len(cc["pos"]) for cc in chains]))
-    ## triples: (deltaE, prd, cost, (ib, i, ia))
+    # triples: (deltaE, prd, cost, (ib, i, ia))
 
     # if (occs[i-ib-1], occs[i], occs[i+ia+1]) == (18125, 508285, 901652):
     # if (v[-2]+offset, k[0]+offset, k[1]+offset) == (3167, 3302, 3440): pdb.set_trace()

@@ -1,6 +1,6 @@
 from classPatterns import PatternCollection, Pattern, DataSequence, computePeriodDiffs, computePeriod, cost_triple, cost_one, computeLengthCycle, Candidate, CandidatePool, sortPids
 from extractCycles import compute_cycles_dyn, extract_cycles_fold
-from readData import readSequence, readSequenceSacha, group_syms
+from readData import readSequence, readSequenceSacha, readEventsDict, group_syms
 import pdb
 import numpy
 import re
@@ -14,6 +14,8 @@ import argparse
 
 numpy.set_printoptions(suppress=True)
 
+# EXAMPLE RUN
+# python run_mine.py sacha_test --print-text --events_file "../data/SachaTrackSTMP/org/event_codes_out.txt" -U minutes -T "2018-04-02 10:10:00" -F "%Y-%m-%d %H:%M:%S" -D shift tX event eventTxt
 
 OFFSETS_T = [0, 1, -1]
 MINE_CPLX = True
@@ -46,6 +48,9 @@ series_params["sacha_18_rel"] = {"input_file": "sacha/data_18-03-22_lagg200NL.tx
 #                                  "timestamp": False, "drop_event_codes":[0, 126, 33]}
 # series_params["sacha_18_abs_2000W"] = {"input_file": "sacha/data_18-03-22_lagg200NL.txt",
 #                                  "timestamp": True, "max_len": 2000, "max_p": 7*24*60}
+
+series_params["sacha_test"] = {"input_file": "sacha/data_18-03-22_lagg200NL.txt", "timestamp": True,
+                               "granularity": 10, "I": True, "events": ["1010_I", "207_E", "207_S"]}  # "drop_event_codes": [0, 126, 33], "max_len": 200}
 
 for f in glob.glob(DATA_REP+"UbiqLog/prepared/*_data.dat"):
     bb = f.split("/")[-1].strip("_data.dat")
@@ -996,7 +1001,7 @@ def disp_seqs(seqs, ffo_log=None):
     log_write(fo_log, ds.getInfoStr()+"\n")
 
 
-def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None):
+def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None, out_fmt={}):
     if writePCout_fun is None:
         writePCout_fun = writePCout
     if fn_basis is None:
@@ -1061,7 +1066,7 @@ def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None):
     log_write(fo_log, "[INTER] Simple selection (%d candidates) at %s\n" % (len(cdict), tic_sel))
     selected = filter_candidates_cover(cdict, dcosts, min_cov=3, adjust_occs=True)
     pc = PatternCollection([cdict[c].getPattT0E() for c in selected])
-    writePCout_fun(pc, ds, fn_basis, "-simple", fo_log)
+    writePCout_fun(pc, ds, fn_basis, "-simple", fo_log, out_fmt)
     tac_sel = datetime.datetime.now()
     dT_sel += (tac_sel - tic_sel)
     log_write(fo_log, "[INTER] Simple selection done in %s at %s\n" % ((tac_sel - tic_sel), tac_sel))
@@ -1099,7 +1104,7 @@ def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None):
                 log_write(fo_log, "[INTER] Simple+%s selection (%d candidates) at %s\n" % (side, len(to_filter), tic_sel))
                 selected = filter_candidates_cover(cdict, dcosts, min_cov=3, adjust_occs=True, cis=to_filter)
                 pc = PatternCollection([cdict[c].getPattT0E() for c in selected])
-                writePCout_fun(pc, ds, fn_basis, "-simple+%s" % side, fo_log)
+                writePCout_fun(pc, ds, fn_basis, "-simple+%s" % side, fo_log, out_fmt)
                 tac_sel = datetime.datetime.now()
                 dT_sel += (tac_sel - tic_sel)
                 log_write(fo_log, "[INTER] Simple+%s selection done in %s at %s\n" % (side, (tac_sel - tic_sel), tac_sel))
@@ -1113,7 +1118,7 @@ def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None):
     log_write(fo_log, "Final selection (%d candidates) at %s\n" % (len(cdict), tac_comb))
     selected = filter_candidates_cover(cdict, dcosts, min_cov=3, adjust_occs=True)
     pc = PatternCollection([cdict[c].getPattT0E() for c in selected])
-    writePCout_fun(pc, ds, fn_basis, "", fo_log)
+    writePCout_fun(pc, ds, fn_basis, "", fo_log, out_fmt)
     tac = datetime.datetime.now()
     log_write(fo_log, "[TIME] Final selection done in %s at %s\n" % (tac-tac_comb, tac))
     #############
@@ -1121,14 +1126,14 @@ def mine_seqs(seqs, fn_basis="-", max_p=None, writePCout_fun=None):
     log_write(fo_log, "[TIME] End --- %s\n" % tac)
 
 
-def writePCout(pc, ds, fn_basis, suff, fo_log=None):
+def writePCout(pc, ds, fn_basis, suff, fo_log=None, out_fmt={}):
     if fn_basis is None:
         return
     if fn_basis == "-":
         fo_patts = sys.stdout
     else:
         fo_patts = open(fn_basis+("_patts%s.txt" % suff), "w")
-    str_stats, str_pl = pc.strDetailed(ds)
+    str_stats, str_pl = pc.strDetailed(ds, out_fmt)
     fo_patts.write(str_stats+str_pl)
     if fn_basis != "-":
         if fo_log is not None:
@@ -1170,18 +1175,37 @@ if __name__ == "__main__":
     parser.add_argument("-G", "--granularity", type=int, help="Time granularity, used as divisor for the original times (sacha only)", default=argparse.SUPPRESS)
     parser.add_argument("-E", "--drop-event", type=str, dest="drop_event_codes", action="append", help="Filter events using hierachical codes, events of the corresponding types and sub-types will be dropped", default=argparse.SUPPRESS)
 
+    parser.add_argument("--events_file", type=str, help="file containing the full text names of events", default=argparse.SUPPRESS)
+    parser.add_argument("--events_sep", type=str, help="field separator used in the events file", default=argparse.SUPPRESS)
+
+    # printing options
+    parser.add_argument("--print-simple", dest="print_simple", action='store_true', help="print all found patterns, including simple cycles", default=argparse.SUPPRESS)
+    parser.add_argument("--no-print-simple", dest="print_simple", action='store_false', help="print only complex cycles", default=argparse.SUPPRESS)
+    parser.add_argument("--print-type", dest="print_type", action='store_true', help="print type of pattern", default=argparse.SUPPRESS)
+    parser.add_argument("--no-print-type", dest="print_type", action='store_false', help="do not print type of pattern", default=argparse.SUPPRESS)
+    parser.add_argument("--print-text", dest="print_text", action='store_true', help="print pattern tree with formatted times and events", default=argparse.SUPPRESS)
+    parser.add_argument("--no-print-text", dest="print_text", action='store_false', help="do not print pattern tree with formatted times and events", default=argparse.SUPPRESS)
+
+    pieces_c, pieces_h = Pattern.getPiecesHelp()
+    ss = ", ".join(["%s (%s)" % (v, pieces_h[k]) for k, v in enumerate(pieces_c)])
+    parser.add_argument('-D', "--print-details", choices=pieces_c, action="extend", nargs="*", type=str, default=[], help="Details of occurrences to print. Possible choices are: "+ss)
+    parser.add_argument("-T", "--org-timestamp", type=str, help="Timestamp for t0", default=argparse.SUPPRESS)
+    parser.add_argument("-F", "--fmt-timestamp", type=str, help="Format for timestamps, default \"%%Y-%%m-%%d %%H:%%M:%%S\"", default="%Y-%m-%d %H:%M:%S")
+    parser.add_argument("-U", "--time-unit", type=str, help="Time unit, e.g. \"seconds\", \"minutes\", \"hours\" or \"days\"", default="seconds")
+
     # output
     parser.add_argument("-x", "--output_folder", type=str, help="Folder in which to save the results and logs", default=argparse.SUPPRESS)
     parser.add_argument("-o", "--output_basename", type=str, help="Basenames for the files in which to save the results and logs", default=argparse.SUPPRESS)
     parser.add_argument("--run_id", type=str, help="run identifier", default=argparse.SUPPRESS)
 
     pargs = vars(parser.parse_args())
+
     lseries = []
     groupped = ""
     if len(pargs.get("series", [])) > 0:
         lseries = pargs["series"]
-        # if lseries[0] not in series_params and lseries[0] not in ["ALL", "OTHER", "UBIQ_ABS", "UBIQ_REL", "TEST", "SACHA"]:
-        #     run_id = lseries.pop(0)
+        if lseries[0] not in series_params and lseries[0] not in ["ALL", "OTHER", "UBIQ_ABS", "UBIQ_REL", "TEST", "SACHA"] and "run_id" not in pargs:
+            pargs["run_id"] = lseries.pop(0)
         if len(lseries) > 0 and lseries[-1] == "ALL":
             lseries = series_params.keys()
         if len(lseries) > 0 and lseries[-1] == "OTHER":
@@ -1210,7 +1234,10 @@ if __name__ == "__main__":
         if series is None or series in series_params:
             params = dict(pargs)
             if series is not None:
-                params.update(series_params[series])
+                # COMMAND LINE PARAMS OVERRIDE SERIES DEFAULT, NOT THE OTHER WAY AROUND
+                sp = dict(series_params[series])
+                sp.update(params)
+                params = sp
                 input_name = series
                 xps_rep = params.get("output_folder", XPS_REP)
                 if "filename" not in params:
@@ -1231,12 +1258,19 @@ if __name__ == "__main__":
             else:
                 seqs = readSequence(params)
 
+            if "events_file" in params:
+                # TODO: reuse folder name if not provided
+                if os.path.isfile(params["events_file"]):
+                    params["events_dict"] = readEventsDict(params["events_file"], absolute=params.get("timestamp", True), sep=params.get("events_sep", "\t"))
+                elif os.path.isfile(params.get("input_folder", DATA_REP)+params["events_file"]):
+                    params["events_dict"] = readEventsDict(params.get("input_folder", DATA_REP)+params["events_file"], absolute=params.get("timestamp", True), sep=params.get("events_sep", "\t"))
+
             if params.get("display", False):
                 print("DISPLAY %s" % input_name)
                 disp_seqs(seqs)
             else:
                 fn_basis = "%s%s%s" % (xps_rep, basename, run_id)
                 print("RUNNING %s" % input_name)
-                mine_seqs(seqs, fn_basis, max_p=params.get("max_p"))
+                mine_seqs(seqs, fn_basis, max_p=params.get("max_p"), out_fmt=params)
         else:
             print("Series %s does not exist!" % series)

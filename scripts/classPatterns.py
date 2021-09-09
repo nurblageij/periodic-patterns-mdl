@@ -3,6 +3,7 @@ import re
 import sys
 import copy
 import itertools
+from datetime import datetime, timedelta
 import pdb
 
 # OPT_TO = False
@@ -13,6 +14,37 @@ ADJFR_MED = False
 # PROPS_MIN_R = 3
 PROPS_MAX_OFFSET = -2
 PROPS_MIN_R = 0
+
+
+def preptime(v, granularity=None, time_unit=None, org_timestamp=None, toStr=False):
+    pv = v
+    try:
+        if granularity is not None:
+            pv *= granularity
+        if org_timestamp is not None and time_unit is not None:
+            if type(org_timestamp) is int:
+                pv = timedelta(**{time_unit: org_timestamp + pv})
+            else:
+                pv = org_timestamp + timedelta(**{time_unit: pv})
+            if toStr:
+                ss = "%s" % pv
+                ss = re.sub(", 0?0:00:00$", "", ss)
+                if time_unit == "minutes":
+                    ss = re.sub(":00$", "", ss)
+                elif time_unit == "hours":
+                    ss = re.sub(":00:00$", "", ss)
+                return ss
+    except TypeError:
+        if toStr:
+            return "-"
+        pv = v
+    if toStr:
+        return "%s" % pv
+    return pv
+
+
+def remapEvents(map_ev, events_dict={}):
+    return dict([(k, events_dict.get(v, v)) for (k, v) in map_ev.items()])
 
 
 def _getChained(listsd, keys=None):
@@ -108,7 +140,7 @@ def computeLengthCycle(data_details, cycle, print_dets=False, no_err=False):
 
 
 def computeLengthResidual(data_details, residual):
-    ## print("\n\t\tresiduals %d %s=%f" % (len(residual["occs"]), residual["alpha"], len(residual["occs"])*(numpy.log2(nbOccs[residual["alpha"]]/nbOccs[-1]) + numpy.log2(deltaT))),)
+    # print("\n\t\tresiduals %d %s=%f" % (len(residual["occs"]), residual["alpha"], len(residual["occs"])*(numpy.log2(nbOccs[residual["alpha"]]/nbOccs[-1]) + numpy.log2(deltaT))),)
     residual["cp"] = -1
     return len(residual["occs"])*cost_one(data_details, residual["alpha"])
 
@@ -147,7 +179,7 @@ def makeOccsAndFreqsMedian(tmpOccs):
         else:
             adjFreqs[k] = 1./len(symOccs)
             orgFreqs[k] = 1./len(tmpOccs)
-    ## print("ADJ FRQ:",  adjFreqs)
+    # print("ADJ FRQ:",  adjFreqs)
     return nbOccs, orgFreqs, adjFreqs, -(numpy.log2(adjFreqs["("])+numpy.log2(adjFreqs[")"]))
 
 
@@ -341,36 +373,68 @@ class PatternCollection(object):
             cl += nb*cost_one(data_details, ev)
         return cl
 
-    def strPatternsTriples(self, data_seq, print_simple=True):
+    def strPatternsTriples(self, data_seq, out_fmt={}):
+        print_simple = out_fmt.get("print_simple", True)
         str_out = ""
         map_ev = data_seq.getNumToEv()
         for pi, (p, t0, E) in enumerate(self.patterns):
             if print_simple or not p.isSimpleCycle():
                 Estr = " ".join(["%d" % e for e in E])
-                str_out += "%s\t%d\t%s\n" % (p.__str__(map_ev=map_ev, leaves_first=True), t0, Estr)
+                str_out += "%s\t%d\t%s\n" % (p.getStr(map_ev=map_ev, leaves_first=True), t0, Estr)
         return str_out
 
-    def strPatternListAndCost(self, data_seq, print_simple=True):
+    def strPatternListAndCost(self, data_seq, out_fmt={}):
+        # For printing out
+        print_simple = out_fmt.get("print_simple", True)
         cl = 0
         data_details = data_seq.getDetails()
         ocls = self.getOccLists()
+        defv = "-"
         map_ev = data_seq.getNumToEv()
+        map_evtxt = remapEvents(map_ev, out_fmt.get("events_dict", {}))
+
+        org_timestamp = None
+        if "org_timestamp" in out_fmt and "fmt_timestamp" in out_fmt:
+            try:
+                org_timestamp = datetime.strptime(out_fmt.get("org_timestamp"), out_fmt.get("fmt_timestamp"))
+                time_unit = out_fmt.get("time_unit")
+            except:
+                org_timestamp = None
+                time_unit = None
+        granularity = float(out_fmt["granularity"]) if "granularity" in out_fmt else None
+
         str_out = " ---- COLLECTION PATTERNS\n"
         for pi, (p, t0, E) in enumerate(self.patterns):
             clp = p.codeLength(t0, E, data_details)
             if print_simple or not p.isSimpleCycle():
-                str_out += "t0=%d\t%s\tCode length:%f\tsum(|E|)=%d\tOccs (%d/%d)\t%s\n" % (t0, p.__str__(map_ev=map_ev, leaves_first=True), clp, numpy.sum(numpy.abs(E)), len(ocls[pi]), len(set(ocls[pi])), p.getTypeStr())
+                xtras = []
+                if out_fmt.get("print_type", True):
+                    xtras.append("type=" + p.getTypeStr())
+                if out_fmt.get("print_text", False):
+                    xtras.append("txt=" + p.getStr(map_ev=map_evtxt, leaves_first=True, granularity=granularity, time_unit=time_unit))
+                if len(out_fmt.get("print_details", [])) > 0:
+                    pcs = p.getAllPieces(t0, E, map_ev, map_evtxt, granularity, time_unit, org_timestamp, toStr=True)
+                    for what in out_fmt["print_details"]:
+                        if org_timestamp is not None:
+                            xtras.append(what + "=" + "; ".join([datetime.strftime(pc.get(what, defv), out_fmt.get("fmt_timestamp")) if type(pc.get(what, defv)) is datetime else "%s" % pc.get(what, defv) for pc in pcs]))
+                        else:
+                            xtras.append("; ".join(["%s" % pc.get(what, defv) for pc in pcs]))
+                if len(xtras) > 0:
+                    xtras = "\t" + "\t".join(xtras)
+                else:
+                    xtras = ""
+                str_out += "t0=%d\t%s\tCode length=%f\tsum(|E|)=%d\tOccs=%d/%d%s\n" % (t0, p.getStr(map_ev=map_ev, leaves_first=True), clp, numpy.sum(numpy.abs(E)), len(ocls[pi]), len(set(ocls[pi])), xtras)
             # print("P:\tt0=%d\t%s\tCode length:%f\tsum(|E|)=%d\tOccs (%d):%s" % (t0, p, clp, numpy.sum(numpy.abs(E)), len(ocls[pi]), [oo[1] for oo in ocls[pi]]))
             # print("sum(|E|)=%d  E=%s" % (numpy.sum(numpy.abs(E)), E))
-            ## print("Occs:", ocls[pi], len(ocls[pi]), len(set(ocls[pi])))
+            # print("Occs:", ocls[pi], len(ocls[pi]), len(set(ocls[pi])))
             cl += clp
         return str_out, cl
 
-    def strDetailed(self, data_seq, print_simple=True):
+    def strDetailed(self, data_seq, out_fmt={}):
         nbs = self.nbPatternsByType()
         data_details = data_seq.getDetails()
 
-        pl_str, cl = self.strPatternListAndCost(data_seq, print_simple)
+        pl_str, cl = self.strPatternListAndCost(data_seq, out_fmt)
 
         nbs_str = ("Total=%d " % len(self)) + " ".join(["nb_%s=%d" % (k, v) for (k, v) in sorted(nbs.items(), key=lambda x: -x[1])])
         out_str = " ---- COLLECTION STATS (%s)\n" % nbs_str
@@ -560,7 +624,7 @@ class Pattern(object):
                 return [nid]
             return []
 
-    def getOccsStar(self, nid=0, pref=[], time=0):
+    def getOccsStar(self, nid=0, pref=[], time=0, with_nids=False):
         if not self.isNode(nid):
             return []
         if self.isInterm(nid):
@@ -569,24 +633,43 @@ class Pattern(object):
                 tt = time + i*self.nodes[nid]["p"]
                 for ni, nn in enumerate(self.nodes[nid]["children"]):
                     tt += nn[1]
-                    occs.extend(self.getOccsStar(nn[0], [(ni, i)]+pref, tt))
+                    occs.extend(self.getOccsStar(nn[0], [(ni, i)]+pref, tt, with_nids))
             return occs
         else:
-            return [(time, self.nodes[nid]["event"], l_to_key(pref[::-1]))]
+            if with_nids:
+                return [(time, nid, l_to_key(pref[::-1]))]
+            else:
+                return [(time, self.nodes[nid]["event"], l_to_key(pref[::-1]))]
 
-    def getTimesNidsRefs(self, nid=0, pref=[], time=0):
-        if not self.isNode(nid):
-            return []
-        if self.isInterm(nid):
-            occs = []
-            for i in range(self.nodes[nid]["r"]):
-                tt = time + i*self.nodes[nid]["p"]
-                for ni, nn in enumerate(self.nodes[nid]["children"]):
-                    tt += nn[1]
-                    occs.extend(self.getTimesNidsRefs(nn[0], [(ni, i)]+pref, tt))
-            return occs
-        else:
-            return [(time, nid, l_to_key(pref[::-1]))]
+    @classmethod
+    def getPiecesHelp(cls):
+        return (["shift", "tX", "tXstar", "event", "eventTxt", "nid", "key", "pX", "pXstar"],
+                ["shift between perfect and real occurrences", "time of real occurrence", "time of perfect occurrence", "occurring event", "occurring event full text name", "node id in the pattern tree", "node key in the pattern tree", "index of real occurrence, in time steps", "index of perfect occurrence, in time steps"])
+
+    def getAllPieces(self, t0=0, E=None, map_ev=None, map_evtxt=None, granularity=None, time_unit="seconds", org_timestamp=None, toStr=False):
+        ostar = self.getOccsStar(time=t0, with_nids=True)
+        pieces = []
+        for oi, ov in enumerate(ostar):
+            piece = {"pXstar": ov[0], "tXstar": ov[0], "nid": ov[1], "key": ov[2]}
+            if map_ev is not None:
+                piece["event"] = map_ev[self.nodes[piece["nid"]]["event"]]
+            else:
+                piece["event"] = self.nodes[piece["nid"]]["event"]
+            if map_evtxt is not None:
+                piece["eventTxt"] = map_evtxt[self.nodes[piece["nid"]]["event"]]
+
+            if E is not None and oi > 0 and oi < len(E)+1:
+                piece["shift"] = E[oi-1]
+                piece["tX"] = piece["tXstar"]+E[oi-1]
+                piece["pX"] = piece["pXstar"]+E[oi-1]
+            else:
+                piece["tX"] = piece["tXstar"]
+                piece["pX"] = piece["pXstar"]
+
+            piece["tXstar"] = preptime(piece["tXstar"], granularity, time_unit, org_timestamp, toStr=toStr)
+            piece["tX"] = preptime(piece["tX"], granularity, time_unit, org_timestamp, toStr=toStr)
+            pieces.append(piece)
+        return pieces
 
     def getEDict(self, oStar, E=[]):
         if len(E) >= len(oStar)-1:
@@ -771,7 +854,7 @@ class Pattern(object):
         return None
 
     def gatherCorrKeys(self, k):
-        ### (child_id, rep_id)
+        # (child_id, rep_id)
         # print("--- Gather", k)
         if type(k) is list:
             key_ints = copy.deepcopy(k)
@@ -869,16 +952,18 @@ class Pattern(object):
             else:
                 return "%s|_ [%s] %s\n" % (("\t"*level), nid, self.nodes[nid]["event"])
 
-    def __str__(self, nid=0, map_ev=None, leaves_first=False):
+    def getStr(self, nid=0, map_ev=None, leaves_first=False, granularity=None, time_unit="seconds"):
         if not self.isNode(nid):
             return ""
         if self.isInterm(nid):
-            ss = "[r=%s p=%s]" % (self.nodes[nid].get("r", "-"), self.nodes[nid].get("p", "-"))
+            org_timestamp = None if granularity is None else 0
+            ss = "[r=%s p=%s]" % (self.nodes[nid].get("r", "-"), preptime(self.nodes[nid].get("p", "-"), granularity, time_unit, org_timestamp=None if granularity is None else 0, toStr=True))
             sc = ""
+
             for ni, nn in enumerate(self.nodes[nid]["children"]):
                 if ni > 0:
-                    sc += " [d=%s] " % nn[1]
-                sc += self.__str__(nn[0], map_ev, leaves_first)
+                    sc += " [d=%s] " % preptime(nn[1], granularity, time_unit, org_timestamp=None if granularity is None else 0, toStr=True)
+                sc += self.getStr(nn[0], map_ev, leaves_first, granularity, time_unit)
             if leaves_first:
                 return "(" + sc + ")" + ss
             return ss + "(" + sc + ")"
@@ -887,6 +972,9 @@ class Pattern(object):
                 return "%s" % map_ev.get(self.nodes[nid]["event"], self.nodes[nid]["event"])
             else:
                 return "%s" % self.nodes[nid]["event"]
+
+    def __str__(self):
+        return self.getStr()
 
     def pattKey(self, nid=0):
         if not self.isNode(nid):
@@ -1632,7 +1720,7 @@ class Candidate(object):
             self.P["occs_up"] = [self.O[kk] for kk in range(mni, mxi+1)]
 
     def getPropsFirst(self, nkey=0):
-        ### ["t0i", "p0", "r0", "offset", "cumEi", "new", "cid"]
+        # ["t0i", "p0", "r0", "offset", "cumEi", "new", "cid"]
         return (self.getT0(), self.getMajorP(), self.getMajorR(), 0, numpy.sum(numpy.abs(self.getMajorE())), nkey, self.getId())
 
     def getPropsAll(self, nkey=0):
@@ -1660,11 +1748,11 @@ class Candidate(object):
                 Q = self.P.copy()
                 Q.factorizeTree(t)
 
-                refs_P = [c[:2] for c in self.P.getTimesNidsRefs()]
+                refs_P = [c[:2] for c in self.P.getOccsStar(with_nids=True)]
                 if len(set(refs_P)) < len(refs_P):
                     # too complex interleaving
                     return fs
-                map_Q = dict([(v, k) for (k, v) in enumerate([c[:2] for c in Q.getTimesNidsRefs()])])
+                map_Q = dict([(v, k) for (k, v) in enumerate([c[:2] for c in Q.getOccsStar(with_nids=True)])])
 
                 Qoccs = [None for i in range(len(self.O))]
                 for i, r in enumerate(refs_P):

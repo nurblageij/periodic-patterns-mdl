@@ -31,7 +31,7 @@ class SyntheXPS:
     def __init__(self):
         self.collected_pcs = {}
 
-    def addPC(self, pc, ds, fn_basis, suff, fo_log=None):
+    def addPC(self, pc, ds, fn_basis, suff, fo_log=None, out_fmt={}):
         self.collected_pcs[suff] = pc
 
     def getPC(self, suff=""):

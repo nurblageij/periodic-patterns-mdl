@@ -45,7 +45,7 @@ def readSequenceSacha(parameters):
     granularity = float(parameters.get("granularity", 1))
     drop_event_codes = parameters.get("drop_event_codes", None)
 
-    sequences = dict([(pi, []) for pi, p in enumerate(parameters["events"])])
+    sequences = {}  # dict([(pi, []) for pi, p in enumerate(parameters.get("events", []))])
     li = 0
     if "filename" in parameters:
         with open(parameters["filename"]) as fp:
@@ -78,6 +78,30 @@ def readSequenceSacha(parameters):
 
     ss = {}
     for sk, s in sequences.items():
-        if len(s) > parameters.get("min_len", 0) and len(s) < parameters.get("max_len", len(s)+1):
+        if ("*" in parameters.get("events", ["*"]) or sk in parameters["events"]) and \
+                len(s) > parameters.get("min_len", 0) and len(s) < parameters.get("max_len", len(s)+1):
             ss[sk] = numpy.array(sorted(set(s)))
     return ss
+
+
+def readEventsDict(filename_evdict, absolute=True, sep="\t"):
+    codes_tmp = {}
+    with open(filename_evdict) as fp:
+        for line in fp:
+            parts = line.strip().split(sep)
+            codes_tmp[parts[0]] = parts[1]
+        # if parts[1] not in codes_tmp:
+        #     codes_tmp[parts[1]] = set(enumerate(parts[2]))
+        # else:
+        #     codes_tmp[parts[1]].intersection_update(enumerate(parts[2]))
+
+    codes = {}
+    for code, cs in codes_tmp.items():
+        if absolute:
+            codes["%s_S" % code] = cs+"_START"
+            codes["%s_E" % code] = cs+"_END"
+            codes["%s_I" % code] = cs+"_INS"
+        else:
+            codes["%s_S" % code] = cs
+            codes["%s" % code] = cs
+    return codes
