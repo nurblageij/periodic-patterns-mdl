@@ -3,6 +3,9 @@
 ##### Conference article:
 E. Galbrun, P. Cellier, N. Tatti, A. Termier, and B. Crémilleux. *Mining periodic patterns with a MDL criterion.* In the proceedings of the European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD'18), September 2018
 
+This branch is for the materials associated with the original publication.
+See branch 'dev' is for later code development.
+
 ## Abstract
 
 The quantity of event logs available is increasing rapidly, be they produced by industrial processes, computing systems, or life tracking, for instance. It is thus important to design effective ways to uncover the information they contain.
